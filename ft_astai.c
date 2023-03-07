@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 02:20:23 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/07 03:02:30 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/07 17:20:57 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ void	ft_astai(int **a, char *av)
 	while (*av)
 	{
 		i = -1;
+		if (*av == 32)
+			av++;
 		while ((*av >= 48 && *av <= 48) | *av == 45)
 		{
 			tmp[++i] = *av;
 			av++;
 		}
 		tmp[++i] = 0;
-		*a[++j] = ft_atoi(tmp);
-		av++;
+		(*a)[++j] = ft_atoi(tmp);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/07 03:03:16 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:53:13 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ int	main(int ac, char **av)
 {
 	int			*a;
 	int			*b;
-	int			len;
+	int			len_a;
+	int			len_b;
 
-	len = 1;
-	ft_check(ac, av[1], &len);
-	a = malloc(len * 4);
-	b = malloc(len * 4);
+	len_a = 1;
+	len_b = 0;
+	ft_check(ac, av[1], &len_a);
+	a = malloc(len_a * 4);
+	b = malloc(0);
 	if (!a | !b)
 		return (0);
 	ft_astai(&a, av[1]);

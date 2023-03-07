@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check.c                                         :+:      :+:    :+:   */
+/*   ft_pb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 01:52:24 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/07 17:24:42 by fgarzi-c         ###   ########.fr       */
+/*   Created: 2023/03/07 15:29:54 by fgarzi-c          #+#    #+#             */
+/*   Updated: 2023/03/07 17:23:51 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_check(int ac, char *str, int *len)
+void	ft_pb(int **a, int **b, int *len_a, int *len_b)
 {
-	if (ac != 2)
-	{
-		write(2, "Error\n", 6);
+	int	*new_a;
+	int	*new_b;
+	int	i;
+	int	tmp;
+
+	new_b = malloc(++(*len_b) * 4);
+	if (!new_b)
 		exit(0);
-	}
-	while (*str)
-	{
-		if (*str == 32 && (*len)++)
-			str++;
-		if (*str == 45)
-			str++;
-		if ((*str < 48 && *str > 57) | !*str)
-		{
-			write(2, "Error\n", 6);
-			exit(0);
-		}
-		str++;
-	}
+	i = -1;
+	new_b[++i] = (*a)[i];
+	while (++i < *len_b - 1)
+		new_b[i] = (*b)[i - 1];
+	(*a)++;
+	(*len_a)--;
+	free(*b);
+	(*b) = new_b;
+	write(1, "pb\n", 3);
 }

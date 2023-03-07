@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:51:27 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/07 02:53:08 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/07 17:12:31 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 void	ft_check(int ac, char *str, int *len);
 void	ft_astai(int **a, char *av);
 int		ft_atoi(const char *str);
+void	ft_rb(int **b, int len_b);
 
 #endif

@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check.c                                         :+:      :+:    :+:   */
+/*   ft_rb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 01:52:24 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/07 17:24:42 by fgarzi-c         ###   ########.fr       */
+/*   Created: 2023/03/07 16:10:22 by fgarzi-c          #+#    #+#             */
+/*   Updated: 2023/03/07 19:10:31 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	ft_check(int ac, char *str, int *len)
+void	ft_rb(int **b, int len_b)
 {
-	if (ac != 2)
+	int	i;
+	int	tmp1;
+	int	tmp2;
+
+	i = 0;
+	tmp1 = (*b)[i];
+	while (++i < len_b)
 	{
-		write(2, "Error\n", 6);
-		exit(0);
+		tmp2 = (*b)[i];
+		(*b)[i] = tmp1;
+		tmp1 = tmp2;
 	}
-	while (*str)
-	{
-		if (*str == 32 && (*len)++)
-			str++;
-		if (*str == 45)
-			str++;
-		if ((*str < 48 && *str > 57) | !*str)
-		{
-			write(2, "Error\n", 6);
-			exit(0);
-		}
-		str++;
-	}
+	(*b)[0] = tmp1;
+	write(1, "rb\n", 3);
 }
