@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rb.c                                            :+:      :+:    :+:   */
+/*   ft_rrb.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 19:19:12 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/07 19:30:38 by fgarzi-c         ###   ########.fr       */
+/*   Created: 2023/03/07 16:10:22 by fgarzi-c          #+#    #+#             */
+/*   Updated: 2023/03/07 19:30:39 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rb(int **b, int len_b)
+void	rrb(int **b, int len_b)
 {
 	int	i;
 	int	tmp1;
 	int	tmp2;
 
-	i = len_b - 1;
+	i = 0;
 	tmp1 = (*b)[i];
-	while (--i >= 0)
+	while (++i < len_b)
 	{
 		tmp2 = (*b)[i];
 		(*b)[i] = tmp1;
 		tmp1 = tmp2;
 	}
-	(*b)[len_b - 1] = tmp1;
-	write(1, "rb\n", 3);
+	(*b)[0] = tmp1;
+	write(1, "rrb\n", 4);
 }

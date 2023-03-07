@@ -6,13 +6,13 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:29:54 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/07 17:23:51 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/07 19:30:40 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_pb(int **a, int **b, int *len_a, int *len_b)
+void	pb(int **a, int **b, int *len_a, int *len_b)
 {
 	int	*new_a;
 	int	*new_b;

@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rb.c                                            :+:      :+:    :+:   */
+/*   ft_sa.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 19:19:12 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/07 19:30:38 by fgarzi-c         ###   ########.fr       */
+/*   Created: 2023/03/07 19:29:55 by fgarzi-c          #+#    #+#             */
+/*   Updated: 2023/03/07 19:32:55 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-
-void	rb(int **b, int len_b)
+void	sa(int **a, int len_a)
 {
-	int	i;
-	int	tmp1;
-	int	tmp2;
+	int	tmp;
 
-	i = len_b - 1;
-	tmp1 = (*b)[i];
-	while (--i >= 0)
-	{
-		tmp2 = (*b)[i];
-		(*b)[i] = tmp1;
-		tmp1 = tmp2;
-	}
-	(*b)[len_b - 1] = tmp1;
-	write(1, "rb\n", 3);
+	if (len_a < 2)
+		return ;
+	tmp = (*a)[0];
+	(*a)[0] = (*a)[1];
+	(*a)[1] = tmp;
+	write(1, "sa\n", 3);
 }
