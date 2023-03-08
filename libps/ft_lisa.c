@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rrb.c                                           :+:      :+:    :+:   */
+/*   ft_lisa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 16:10:22 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/07 19:30:39 by fgarzi-c         ###   ########.fr       */
+/*   Created: 2023/03/08 23:37:52 by fgarzi-c          #+#    #+#             */
+/*   Updated: 2023/03/09 00:44:28 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	rrb(int **b, int len_b)
+void	ft_lisa(int *a, int len_a)
 {
+	int	lis;
+	int	tmp;
 	int	i;
-	int	tmp1;
-	int	tmp2;
 
+	lis = 1;
+	tmp = *a;
 	i = 0;
-	tmp1 = (*b)[i];
-	while (++i < len_b)
+	while (++i < len_a)
 	{
-		tmp2 = (*b)[i];
-		(*b)[i] = tmp1;
-		tmp1 = tmp2;
+		if (a[i] > tmp)
+		{
+			tmp = a[i];
+			lis++;
+		}
 	}
-	(*b)[0] = tmp1;
-	write(1, "rrb\n", 4);
 }

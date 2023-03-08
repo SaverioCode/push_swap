@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 22:08:13 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/07 02:22:31 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/07 23:53:09 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_atoi(const char *str)
 
 	value = 0;
 	i = -1;
+	sign = 0;
 	while (str[++i])
 	{
 		if ((str[i] > 0 && (str[i] < 48)) || str[i] > 57)

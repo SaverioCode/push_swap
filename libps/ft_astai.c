@@ -6,13 +6,13 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 02:20:23 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/07 17:20:57 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/07 23:46:16 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_astai(int **a, char *av)
+void	ft_astai(int *a, char *av)
 {
 	char	tmp[12];
 	int		i;
@@ -24,12 +24,12 @@ void	ft_astai(int **a, char *av)
 		i = -1;
 		if (*av == 32)
 			av++;
-		while ((*av >= 48 && *av <= 48) | *av == 45)
+		while ((*av > 47 && *av < 58) || *av == 45)
 		{
 			tmp[++i] = *av;
 			av++;
 		}
 		tmp[++i] = 0;
-		(*a)[++j] = ft_atoi(tmp);
+		a[++j] = ft_atoi(tmp);
 	}
 }
