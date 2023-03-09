@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 23:37:52 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/09 16:41:29 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:43:06 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,5 @@ int	*ft_find_lis(int *a, int len_a)
 	ld_i_and_lis = ft_lis(a, len_a, 0, descending);
 	rla_i_and_lis = ft_rev_lis(a, len_a, len_a, ascending);
 	rld_i_and_lis = ft_rev_lis(a, len_a, len_a, descending);
+	
 }
