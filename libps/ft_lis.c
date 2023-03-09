@@ -6,35 +6,34 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 23:37:52 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/09 16:08:26 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:41:29 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ascending(int *a, int i, int tmp, int *lis)
+int	ascending(int *a, int i, int tmp, int *len)
 {
-	if (tmp < a[i] && ++(*lis))
+	if (tmp < a[i] && ++(*len))
 		tmp = a[i];
 	return (tmp);
 }
 
-int	discending(int *a, int i, int tmp, int *lis)
+int	descending(int *a, int i, int tmp, int *len)
 {
-	if (tmp > a[i] && ++(*lis))
+	if (tmp > a[i] && ++(*len))
 		tmp = a[i];
 	return (tmp);
 }
 
-int	*ft_rev_lis(int *a, int len_a, int f(int *, int, int, int*))
+int	*ft_rev_lis(int *a, int len_a, int index, int f())
 {
 	int	lis;
 	int	tmp;
 	int	i;
-	int	i_and_lis[2];
-	int	index;
+	int	*i_and_lis;
 
-	index = len_a;
+	i_and_lis = ft_malloc(3 * 4);
 	i_and_lis[0] = len_a;
 	i_and_lis[1] = 0;
 	lis = 1;
@@ -44,40 +43,54 @@ int	*ft_rev_lis(int *a, int len_a, int f(int *, int, int, int*))
 		i = index;
 		while (--i >= 0)
 			tmp = f(*a, i, tmp, &lis);
-		if ((i - lis) < (i_and_lis[0]) - (i_and_lis[1]))
+		if ((i - lis) < (i_and_lis[2]) - (i_and_lis[1]))
 		{
-			i_and_lis[0] = i;
+			i_and_lis[0] = index;
 			i_and_lis[1] = lis;
+			i_and_lis[2] = i;
 		}
 		index--;
 	}
 	return (i_and_lis);
 }
 
-int	*ft_lis(int *a, int len_a, int f(int *, int, int, int *))
+int	*ft_lis(int *a, int len_a, int index, int f())
 {
-	int	lis;
+	int	len;
 	int	tmp;
 	int	i;
-	int	i_and_lis[2];
-	int	index;
+	int	*i_and_lis;
 
-	index = 0;
+	i_and_lis = ft_malloc(3 * 4);
 	i_and_lis[0] = len_a;
 	i_and_lis[1] = 0;
-	lis = 1;
+	len = 1;
 	tmp = *a;
 	while (index < len_a / 2)
 	{
 		i = index;
 		while (++i < len_a)
-			tmp = f(*a, i, tmp, &lis);
-		if ((i - lis) < (i_and_lis[0]) - (i_and_lis[1]))
+			tmp = f(*a, i, tmp, &len);
+		if ((i - len) < (i_and_lis[2]) - (i_and_lis[1]))
 		{
-			i_and_lis[0] = i;
-			i_and_lis[1] = lis;
+			i_and_lis[0] = index;
+			i_and_lis[1] = len;
+			i_and_lis[2] = i;
 		}
 		index++;
 	}
 	return (i_and_lis);
+}
+
+int	*ft_find_lis(int *a, int len_a)
+{
+	int	*la_i_and_lis;
+	int	*ld_i_and_lis;
+	int	*rla_i_and_lis;
+	int	*rld_i_and_lis;
+
+	la_i_and_lis = ft_lis(a, len_a, 0, ascending);
+	ld_i_and_lis = ft_lis(a, len_a, 0, descending);
+	rla_i_and_lis = ft_rev_lis(a, len_a, len_a, ascending);
+	rld_i_and_lis = ft_rev_lis(a, len_a, len_a, descending);
 }

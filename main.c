@@ -6,11 +6,16 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/09 14:25:16 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:10:30 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libps/push_swap.h"
+
+void	push_swap()
+{
+	
+}
 
 int	main(int ac, char **av)
 {
