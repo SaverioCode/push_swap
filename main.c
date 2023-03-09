@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/09 00:10:47 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:25:16 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,6 @@ int	main(int ac, char **av)
 	if (!a | !b)
 		return (0);
 	ft_astai(a, av[1]);
-	/// testing ///
-	// int j = -1;
-	// while (++j < len_a)
-	// 	printf("%d ", a[j]);
-	// printf("\n");
-	printf("C\n");
-	/// end testing ///
 	// do the magic //
 	// push_swap(&a, &b, &len_a, &len_b);
 	write(1, "B\n", 2); /////////

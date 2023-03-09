@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:51:27 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/09 00:01:36 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:02:42 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
 void	ft_check(int ac, char *str, int *len);
 void	ft_astai(int *a, char *av);
 int		ft_atoi(const char *str);
-void	ft_lisa(int *a, int len_a);
-void	ft_lisd(int *a, int len_a);
+int		*ft_lis(int *a, int len_a, int index, int f(int *, int, int, int *));
+int		*ft_rev_lis(int *a, int len_a, int index, int f(int *, int, int, int*));
+int		ascending(int *a, int i, int tmp, int *lis);
+int		discending(int *a, int i, int tmp, int *lis);
 
 #endif
