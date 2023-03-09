@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:29:55 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/09 21:50:08 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/09 21:50:48 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sa(int *a, int len_a)
 {
 	int	tmp;
 
-	if (len_a > 1)
+	if (len_a < 2)
 		return ;
 	tmp = a[0];
 	a[0] = a[1];
