@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 23:37:52 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/09 16:02:25 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:08:26 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,15 @@ int	discending(int *a, int i, int tmp, int *lis)
 	return (tmp);
 }
 
-int	*ft_rev_lis(int *a, int len_a, int index, int f(int *, int, int, int*))
+int	*ft_rev_lis(int *a, int len_a, int f(int *, int, int, int*))
 {
 	int	lis;
 	int	tmp;
 	int	i;
 	int	i_and_lis[2];
+	int	index;
 
+	index = len_a;
 	i_and_lis[0] = len_a;
 	i_and_lis[1] = 0;
 	lis = 1;
@@ -52,13 +54,15 @@ int	*ft_rev_lis(int *a, int len_a, int index, int f(int *, int, int, int*))
 	return (i_and_lis);
 }
 
-int	*ft_lis(int *a, int len_a, int index, int f(int *, int, int, int *))
+int	*ft_lis(int *a, int len_a, int f(int *, int, int, int *))
 {
 	int	lis;
 	int	tmp;
 	int	i;
 	int	i_and_lis[2];
+	int	index;
 
+	index = 0;
 	i_and_lis[0] = len_a;
 	i_and_lis[1] = 0;
 	lis = 1;
