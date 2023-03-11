@@ -12,87 +12,69 @@
 
 #include "push_swap.h"
 
-int	ascending(int *a, int i, int tmp, int *len)
+int	find_len(int *stack, int *M, int lis_len)
 {
-	if (tmp < a[i] && ++(*len))
-		tmp = a[i];
-	return (tmp);
-}
-
-int	descending(int *a, int i, int tmp, int *len)
-{
-	if (tmp > a[i] && ++(*len))
-		tmp = a[i];
-	return (tmp);
-}
-
-int	*ft_rev_lis(int *a, int len_a, int index, int f())
-{
-	int	len;
-	int	tmp;
+	int	low;
+	int	mid;
+	int	hi;
 	int	i;
-	int	*i_and_lis;
 
-	i_and_lis = ft_malloc(3 * 4);
-	i_and_lis[2] = len_a;
-	i_and_lis[1] = 0;
-	tmp = *a;
-	while (index > len_a / 2)
+	i = 0;
+	low = 1;
+	hi = lis_len + 1;
+	while (low < hi)
 	{
-		i = index;
-		len = 1;
-		while (--i >= 1)
-			tmp = f(a, i, tmp, &len);
-		if ((i - len) < (i_and_lis[2] - i_and_lis[1]))
-		{
-			i_and_lis[0] = index;
-			i_and_lis[1] = len;
-			i_and_lis[2] = i;
-		}
-		index--;
+		mid = low + (hi - low) / 2;
+		if (stack[M[mid]] >= stack[i])
+			hi = mid;
+		else
+			low = mid + 1;
 	}
-	return (i_and_lis);
+	return (low);
 }
 
-int	*ft_lis(int *a, int len_a, int index, int f())
+int	*create_lis(int *stack, int *P, int *M, int lis_len)
 {
-	int	len;
-	int	tmp;
-	int	i;
-	int	*i_and_lis;
+	int	*arr;
+	int i;
+	int	j;
 
-	i_and_lis = ft_malloc(3 * 4);
-	i_and_lis[2] = len_a;
-	i_and_lis[1] = 0;
-	tmp = *a;
-	while (index < len_a / 2)
+	arr = ft_malloc(lis_len * 4);
+	j = M[lis_len];
+	while (i >= 0)
 	{
-		i = index;
-		len = 1;
-		while (++i < len_a - 1)
-			tmp = f(a, i, tmp, &len);
-		// printf("i - len: %d	i_and_lis[2] - i_and_lis[1]: %d\n", i - len, i_and_lis[2] - i_and_lis[1]);
-		if ((i - len) < (i_and_lis[2] - i_and_lis[1]))
-		{
-			i_and_lis[0] = index;
-			i_and_lis[1] = len;
-			i_and_lis[2] = i;
-		}
-		index++;
+		arr[i] = stack[j];
+		j = P[j];
+		i--;
 	}
-	return (i_and_lis);
+	return (arr);
 }
 
-// int	*ft_find_lis(int *a, int len_a)
-// {
-// 	int	*la_i_and_lis;
-// 	int	*ld_i_and_lis;
-// 	int	*rla_i_and_lis;
-// 	int	*rld_i_and_lis;
+int	**ft_lis(int *stack, int s_len)
+{
+	int **LIS;
+	int	*P;
+	int *M;
+	int	len_newl[2];
+	int	i;
 
-// 	la_i_and_lis = ft_lis(a, len_a, 0, ascending);
-// 	ld_i_and_lis = ft_lis(a, len_a, 0, descending);
-// 	rla_i_and_lis = ft_rev_lis(a, len_a, len_a, ascending);
-// 	rld_i_and_lis = ft_rev_lis(a, len_a, len_a, descending);
-	
-// }
+	P = ft_malloc(s_len * 4);
+	M = ft_malloc((s_len + 1) * 4);
+	len_newl[0] = 0;
+	i = 0;
+	while (i < s_len)
+	{
+		len_newl[1] = find_len(stack, M, len_newl[0]);
+		P[i] = M[len_newl[1] - 1];
+		M[len_newl[1]] = i;
+		if (len_newl[1] > len_newl[0])
+			len_newl[0] = len_newl[1];
+		i++;
+	}
+	LIS = malloc((len_newl[0] + 1) * 4);
+	LIS[0][0] = len_newl[0];
+	LIS[1] = create_lis(stack, M, P, len_newl[0]);
+	free(P);
+	free(M);
+	return (LIS);
+}
