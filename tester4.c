@@ -11,23 +11,14 @@ int main()
 	// M = array of length N + 1
 	int	*M = malloc((n + 1) * 4);
 	M[0] = -1; // undefined so can be set to any value
-
 	int	lo;
 	int	hi;
-
 	int mid;
-
 	int	newL;
-
 	int L = 0;
 	int i = 0;
-	// lo = 1;
-	// hi = L + 1;
 	while (i < n)
 	{
-	// for i in range 0 to N-1:
-		// Binary search for the smallest positive l ≤ L
-		// such that X[M[l]] > X[i]
 		lo = 1;
 		hi = L + 1;
 		while (lo < hi)
@@ -38,18 +29,10 @@ int main()
 			else // if X[M[mid]] < X[i]
 				lo = mid + 1;
 		}
-		// After searching, lo == hi is 1 greater than the
-		// length of the longest prefix of X[i]
 		newL = lo;
-
-		// The predecessor of X[i] is the last index of 
-		// the subsequence of length newL-1j
 		P[i] = M[newL-1];
+		printf("%d ", P[i]);  /////////
 		M[newL] = i;
-		
-		// If we found a subsequence longer than any we've
-		// found yet, update L
-		// L = newL;
 		if (newL > L)
 			L = newL;
 		i++;
@@ -58,20 +41,22 @@ int main()
 	// It consists of the values of X at the L indices:
 	// ...,  P[P[M[L]]], P[M[L]], M[L]
 	int	k;
-	printf("L - 1: %d\n", L - 1);
+	// printf("L - 1: %d\n", L - 1);
 	// S = array of length L
+	// printf("%d \n", L);
+	// printf("%d \n", M[L]);
 	int	*S = malloc(L * 4);
 	k = M[L];
 	int j = L - 1;
 	while (j >= 0)
 	{
 	// for j in range L-1 to 0:
-		printf("%d ", X[k]);
+		// printf("%d ", X[k]);
 		S[j] = X[k];
 		k = P[k];
 		j--;
 	}
-	printf("\n");
+	// printf("\n");
 	free(P);
 	free(M);
 	free(S);

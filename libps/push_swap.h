@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:51:27 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/10 00:32:43 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/11 22:20:25 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int		*ft_rev_lis(int *a, int len_a, int index, int f());
 int		ascending(int *a, int i, int tmp, int *len);
 int		descending(int *a, int i, int tmp, int *len);
 void	*ft_malloc(int bytes);
-int		**ft_lis(int *stack, int s_len);
+int		*ft_lis(int *stack, int s_len, int *lis_len);
 
 #endif
