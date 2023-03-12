@@ -12,7 +12,7 @@ int main()
 	int	i = 0;
 
 	arr = x;
-	ft_rb(&arr, n);
+	ft_rb(arr, n, 1);
 	while (i < n)
 	{
 		printf("%d ", arr[i]);

@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/12 19:09:54 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/12 19:28:21 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,27 +53,30 @@ int	*ft_fstmv(int *a, int *b, int len_a, int len_b)
 	int	moves;
 	int	i;
 	int	j;
+	int *lis;
+	int lis_len;
 
+	lis_len = 0;
 	moves = 100000;
+	lis = ft_lis(a, len_a, lis_len);
 	i1_i2 = ft_malloc(2 * 4);
-	i = 0;
+	i = -1;
 	/// impongo di vedere solo fino a dieci posizioni nello stack a ///
-	while (i < len_a && i < 10)
+	while (++i < len_a && i < 10)
 	{
 	/// j1 parte da 2 poiche i primi due casi sono "speciali" e gestiti da due diverse funzioni ///
-		j = 2;
+		j = 1;
+		while (ft_islis(lis, lis_len, a[i]))
+			i++;
 	/// impongo di vedere solo fino a dieci posizioni nello stack b ///
 		if (is_suitable_1(a, b, len_b, i))
 			updt_fstmv(i, 0, &moves, i1_i2);
 		if (is_suitable_2(a, b, len_b, i))
 			updt_fstmv(i, 1, &moves, i1_i2);
-		while (j < len_b && j < 10)
-		{
+		while (++j < len_b && j < 10)
 			if (is_suitable(a, b, i, j))
 				updt_fstmv(i, j, &moves, i1_i2);
-			j++;
-		}
-		i++;
 	}
+	free(lis);
 	return (i1_i2);
 }

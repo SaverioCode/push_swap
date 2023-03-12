@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:51:27 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/12 01:11:05 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/12 19:28:11 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_astai(int *a, char *av);
 int		ft_atoi(const char *str);
 void	*ft_malloc(int bytes);
 int		*ft_lis(int *stack, int s_len, int *lis_len);
-int		ft_islis(int *stack, int num);
+int		ft_islis(int *lis, int lis_len, int num);
 int		*ft_fstmv(int *a, int *b, int len_a, int len_b);
 
 #endif

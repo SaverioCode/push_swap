@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves.h                                            :+:      :+:    :+:   */
+/*   ft_ra.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 01:51:27 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/12 19:40:21 by fgarzi-c         ###   ########.fr       */
+/*   Created: 2023/03/07 19:19:12 by fgarzi-c          #+#    #+#             */
+/*   Updated: 2023/03/12 19:36:04 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MOVES_H
-# define MOVES_H
+#include "moves.h"
 
-# include "../push_swap.h"
+void	ft_ra(int *a, int len_a, int flag)
+{
+	int	i;
+	int	tmp1;
+	int	tmp2;
 
-void	ft_rrb(int *b, int len_b, int flag);
-void	ft_ra(int *a, int len_a, int flag);
-void	ft_rb(int *b, int len_b, int flag);
-void	ft_rr(int *a, int *b , int len_a, int len_b);
-void	ft_sa(int *a, int len_a);
-int		*ft_pb(int **a, int *b, int *len_a, int *len_b);
-int		*ft_new_a(int *a, int len_a);
-
-#endif
+	i = len_a - 1;
+	tmp1 = a[i];
+	while (--i >= 0)
+	{
+		tmp2 = a[i];
+		a[i] = tmp1;
+		tmp1 = tmp2;
+	}
+	a[len_a - 1] = tmp1;
+	if (flag == 1)
+		write(1, "rb\n", 3);
+}

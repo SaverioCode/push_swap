@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/12 19:10:28 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/12 19:43:07 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,24 @@ void	push_swap(int *a, int *b, int *len_a, int *len_b)
 	int	*lis;
 	int	lis_len;
 	int	i;
-	int	*num_ia_ib;  // numero da inserire, indice del numero da inserire, indice del numero nell'altro stack
+	int	*i1_i2;  // numero da inserire, indice del numero da inserire, indice del numero nell'altro stack
 	
 	lis_len = 0;
 	lis = ft_lis(a, len_a, &lis_len);
 	i = 0;
-	while (i < len_a && i < 10)
+	while (len_a > lis_len)
 	{
-		while (islis(lis, a[i]))
-			i++;
-		num_ia_ib = ft_fstmv(*a, *b, len_a, len_b);
-		while (a[0] != num_ia_ib[0] && )
-		{
-			ft_rb()
-		}
+		i1_i2 = ft_fstmv(*a, *b, len_a, len_b);
+		while (i1_i2[0] > 0 && i1_i2[1] > 0 && --i1_i2[0] && --i1_i2[1])
+			ft_rr(a, b, len_a, len_b);
+		while (i1_i2[0] > 0 && --i1_i2[0])
+			ft_ra(a, len_a, 1);
+		while (i1_i2[1] > 0 && --i1_i2[1])
+			ft_rb(b, len_b, 1);
+		ft_pb(&a, b, &len_a, &len_b);
 		i++;
 	}
-	free(num_ia_ib);
+	free(i1_i2);
 	free(lis);
 }
 
