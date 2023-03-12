@@ -6,14 +6,11 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/12 01:19:16 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/12 19:10:28 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libps/push_swap.h"
-
-
-
 
 void	push_swap(int *a, int *b, int *len_a, int *len_b)
 {
@@ -21,6 +18,7 @@ void	push_swap(int *a, int *b, int *len_a, int *len_b)
 	int	lis_len;
 	int	i;
 	int	*num_ia_ib;  // numero da inserire, indice del numero da inserire, indice del numero nell'altro stack
+	
 	lis_len = 0;
 	lis = ft_lis(a, len_a, &lis_len);
 	i = 0;
