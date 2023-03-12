@@ -6,13 +6,13 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:29:54 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/08 23:45:23 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/12 01:03:55 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "moves.h"
 
-int	*pb(int **a, int *b, int *len_a, int *len_b)
+int	*ft_pb(int **a, int *b, int *len_a, int *len_b)
 {
 	int	*new_b;
 	int	i;

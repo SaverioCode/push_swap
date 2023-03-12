@@ -6,13 +6,13 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:29:55 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/09 21:51:28 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/12 01:03:47 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "moves.h"
 
-void	sa(int *a, int len_a)
+void	ft_sa(int *a, int len_a)
 {
 	int	tmp;
 

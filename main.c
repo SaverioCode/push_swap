@@ -6,15 +6,37 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/11 19:58:50 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/12 01:19:16 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libps/push_swap.h"
 
-void	push_swap(int *a, int *b, int *len_a, int len_b)
+
+
+
+void	push_swap(int *a, int *b, int *len_a, int *len_b)
 {
-	
+	int	*lis;
+	int	lis_len;
+	int	i;
+	int	*num_ia_ib;  // numero da inserire, indice del numero da inserire, indice del numero nell'altro stack
+	lis_len = 0;
+	lis = ft_lis(a, len_a, &lis_len);
+	i = 0;
+	while (i < len_a && i < 10)
+	{
+		while (islis(lis, a[i]))
+			i++;
+		num_ia_ib = ft_fstmv(*a, *b, len_a, len_b);
+		while (a[0] != num_ia_ib[0] && )
+		{
+			ft_rb()
+		}
+		i++;
+	}
+	free(num_ia_ib);
+	free(lis);
 }
 
 int	main(int ac, char **av)

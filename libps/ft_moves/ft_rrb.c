@@ -6,13 +6,13 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:10:22 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/08 23:45:10 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/12 01:03:38 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "moves.h"
 
-void	rrb(int **b, int len_b)
+void	ft_rrb(int **b, int len_b)
 {
 	int	i;
 	int	tmp1;
