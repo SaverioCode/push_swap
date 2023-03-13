@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/12 19:28:21 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:42:36 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,32 @@ int	is_suitable(int *s1, int *s2, int i1, int i2)
 	return (0);
 }
 
+int	chk_fstmv_eq(int i1, int i2)
+{
+	if ((2 * i1) > i2)
+		return (1);
+	return (0);
+}
+
+int	fstmv_eq(int i1, int i2, int moves, int flag)
+{
+	if (flag == 1)
+		if ((2 * i1) - i2 < moves)
+			return (1);
+	else if (flag == 0)
+		if (i2 - (2 * i1) < moves)
+			return (1);
+	return (0);
+}
+
 void	updt_fstmv(int i1, int i2, int *moves, int *i1_i2)
 {
-	if ((2 * i1) - i2 < moves)
+	int	flag;
+
+	flag = 0;
+	if (chk_fstmv_eq(i1, i2))
+		flag = 1;
+	if (fstmv_eq(i1, i2, moves, flag))
 	{
 		i1_i2[0] = i1;
 		i1_i2[1] = i2;
@@ -64,15 +87,15 @@ int	*ft_fstmv(int *a, int *b, int len_a, int len_b)
 	/// impongo di vedere solo fino a dieci posizioni nello stack a ///
 	while (++i < len_a && i < 10)
 	{
-	/// j1 parte da 2 poiche i primi due casi sono "speciali" e gestiti da due diverse funzioni ///
-		j = 1;
 		while (ft_islis(lis, lis_len, a[i]))
 			i++;
-	/// impongo di vedere solo fino a dieci posizioni nello stack b ///
 		if (is_suitable_1(a, b, len_b, i))
 			updt_fstmv(i, 0, &moves, i1_i2);
 		if (is_suitable_2(a, b, len_b, i))
 			updt_fstmv(i, 1, &moves, i1_i2);
+	/// j1 parte da 2 poiche i primi due casi sono "speciali" e gestiti da due diverse funzioni ///
+		j = 1;
+	/// impongo di vedere solo fino a dieci posizioni nello stack b ///
 		while (++j < len_b && j < 10)
 			if (is_suitable(a, b, i, j))
 				updt_fstmv(i, j, &moves, i1_i2);
