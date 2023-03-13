@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/13 17:52:10 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/14 00:23:21 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,6 @@ int	is_suitable(int *s1, int *s2, int i1, int i2)
 	if (s1[i1] < s2[i2] && s1[i1] < s2[i2 - 1] && s1[i1] > s2[i2 - 2])
 		return (1);
 	return (0);
-}
-
-int	is_lowest(int *stack, int len_s, int i)
-{
-	// do stuff
-}
-
-int	is_higest(int *stack, int len_s, int i)
-{
-	// do stuff
-}
-
-int	find_lowest(int *stack, int len_s)
-{
-	// do stuff
-}
-
-int	find_higest(int *stack, int len_s)
-{
-	// do stuff
 }
 
 int	chk_fstmv_eq(int i1, int i2)
@@ -104,27 +84,26 @@ int	*ft_fstmv(int *a, int *b, int len_a, int len_b)
 	lis = ft_lis(a, len_a, lis_len);
 	i1_i2 = ft_malloc(2 * 4);
 	i = -1;
-	/// impongo di vedere solo fino a dieci posizioni nello stack a ///
-	while (++i < len_a && i < 10)
+	while (++i < len_a)
 	{
 		while (ft_islis(lis, lis_len, a[i]))
 			i++;
-		// if not the lowest or the biggest
+		if (is_lowest(a, len_a, i))
+			updt_fstmv(i, find_lowest_id(b, len_b), &moves, i1_i2);
+		else if (is_higest(a, len_a, i))
+			updt_fstmv(i, find_max_id(b, len_b), &moves, i1_i2);
+		else
+		{	
 			if (is_suitable_1(a, b, len_b, i))
 				updt_fstmv(i, 0, &moves, i1_i2);
 			if (is_suitable_2(a, b, len_b, i))
 				updt_fstmv(i, 1, &moves, i1_i2);
-		// if it's the lowest or the biggest
-			//updt_fstmv
 	/// j1 parte da 2 poiche i primi due casi sono "speciali" e gestiti da due diverse funzioni ///
-		j = 1;
+			j = 1;
 	/// impongo di vedere solo fino a dieci posizioni nello stack b ///
-		while (++j < len_b && j < 10)
-		{
-			// if is the lowes or the biggest
-				//updt_fstmv
-			else if (is_suitable(a, b, i, j))
-				updt_fstmv(i, j, &moves, i1_i2);
+			while (++j < len_b && j < 10)
+				if (is_suitable(a, b, i, j))
+					updt_fstmv(i, j, &moves, i1_i2);
 		}
 	}
 	free(lis);

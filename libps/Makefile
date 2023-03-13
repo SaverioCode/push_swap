@@ -6,14 +6,13 @@
 #    By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 21:48:18 by fgarzi-c          #+#    #+#              #
-#    Updated: 2023/03/13 17:47:24 by fgarzi-c         ###   ########.fr        #
+#    Updated: 2023/03/13 23:17:06 by fgarzi-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libps.a
 SRCS = ft_astai.c ft_atoi.c ft_check.c ft_lis.c ft_lisd.c \
-	ft_malloc.c ft_fstmv.c
-	# ft_lower_num.c
+	ft_malloc.c ft_fstmv.c ft_highest.c ft_lowest.c
 OBJS = $(SRCS:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
