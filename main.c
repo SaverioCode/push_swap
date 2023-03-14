@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/15 00:32:57 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:54:51 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@ void	push_swap(int **a, int **b, int *len_a, int *len_b)
 	int	*i1_i2;  // numero da inserire, indice del numero da inserire, indice del numero nell'altro stack
 	int alen_blen[2];
 
-	/// maybe just put the first 2 in b
-	*b = ft_pb(a, *b, len_a, len_b);
-	*b = ft_pb(a, *b, len_a, len_b);
-	*b = ft_pb(a, *b, len_a, len_b);
 	lis_and_lisl = ft_lis(*a, *len_a);
 	while (*len_a != lis_and_lisl[1][0])
 	{
@@ -58,8 +54,7 @@ int	main(int ac, char **av)
 	ft_astai(a, av[1]);
 	// do the magic //
 	/// handle special case if length of stack a is 3 ///
-		/// handle here ///
-	/// ft_putfirsthree() /// before starting the game
+	put_first_three(&a, &b, &len_a, &len_b);
 	write(1, "A\n", 2);
 	push_swap(&a, &b, &len_a, &len_b);   /// still in testing
 	write(1, "B\n", 2); /////////
