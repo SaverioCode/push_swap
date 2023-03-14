@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/14 00:23:21 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/14 02:30:40 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,15 @@ int	chk_fstmv_eq(int i1, int i2)
 int	fstmv_eq(int i1, int i2, int moves, int flag)
 {
 	if (flag == 1)
+	{	
 		if ((2 * i1) - i2 < moves)
 			return (1);
+	}
 	else if (flag == 0)
+	{
 		if (i2 - (2 * i1) < moves)
 			return (1);
+	}
 	return (0);
 }
 
@@ -62,7 +66,7 @@ void	updt_fstmv(int i1, int i2, int *moves, int *i1_i2)
 	flag = 0;
 	if (chk_fstmv_eq(i1, i2))
 		flag = 1;
-	if (fstmv_eq(i1, i2, moves, flag))
+	if (fstmv_eq(i1, i2, *moves, flag))
 	{
 		i1_i2[0] = i1;
 		i1_i2[1] = i2;
@@ -81,17 +85,29 @@ int	*ft_fstmv(int *a, int *b, int len_a, int len_b)
 
 	lis_len = 0;
 	moves = 100000;
-	lis = ft_lis(a, len_a, lis_len);
+	lis = ft_lis(a, len_a, &lis_len);
+	/// testing ///
+	int k = -1;
+	while (++k < lis_len)
+		printf("%d ", lis[k]);
+	printf("\n");
+	/// end testing ///
 	i1_i2 = ft_malloc(2 * 4);
 	i = -1;
 	while (++i < len_a)
 	{
-		while (ft_islis(lis, lis_len, a[i]))
+		// write(1, "AFT\n", 4); //////
+		while (ft_islis(lis, lis_len, a[i]) && i < len_a)
 			i++;
+		// write(1, "A1FT\n", 5); //////
 		if (is_lowest(a, len_a, i))
-			updt_fstmv(i, find_lowest_id(b, len_b), &moves, i1_i2);
-		else if (is_higest(a, len_a, i))
-			updt_fstmv(i, find_max_id(b, len_b), &moves, i1_i2);
+{			updt_fstmv(i, find_lowest_id(b, len_b), &moves, i1_i2);
+		// write(1, "A2FT\n", 5); //////
+		}
+		else if (is_max(a, len_a, i))
+{			updt_fstmv(i, find_max_id(b, len_b), &moves, i1_i2);
+		// write(1, "A3FT\n", 5); //////
+		}
 		else
 		{	
 			if (is_suitable_1(a, b, len_b, i))
@@ -105,7 +121,9 @@ int	*ft_fstmv(int *a, int *b, int len_a, int len_b)
 				if (is_suitable(a, b, i, j))
 					updt_fstmv(i, j, &moves, i1_i2);
 		}
+		// write(1, "A4FT\n", 5); //////
 	}
 	free(lis);
+	printf("FSTMV	i1: %d	i2: %d\n", i1_i2[0], i1_i2[1]); ///////
 	return (i1_i2);
 }

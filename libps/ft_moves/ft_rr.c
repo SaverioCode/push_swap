@@ -6,9 +6,11 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 19:34:45 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/12 19:36:59 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/14 01:12:08 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "moves.h"
 
 void	ft_rr(int *a, int *b , int len_a, int len_b)
 {
