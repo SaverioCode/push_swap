@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:29:54 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/12 01:03:55 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:01:33 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ int	*ft_pb(int **a, int *b, int *len_a, int *len_b)
 	int	*new_b;
 	int	i;
 
-	new_b = malloc(++(*len_b) * 4);
-	if (!new_b)
-		exit(0);
+	new_b = ft_malloc(++(*len_b) * 4);
 	i = 0;
 	new_b[i] = (*a)[i];
 	while (++i < *len_b)

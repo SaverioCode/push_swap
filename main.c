@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/14 02:40:13 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:13:45 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,22 @@
 
 void	push_swap(int *a, int *b, int *len_a, int *len_b)
 {
-	int	*lis;
-	int	lis_len;
+	int	**lis_and_lisl;
 	int	*i1_i2;  // numero da inserire, indice del numero da inserire, indice del numero nell'altro stack
-	
-	lis_len = 0;
+	int alen_blen[2];
+
 	/// maybe just put the first 2 in b
 	b = ft_pb(&a, b, len_a, len_b);
 	b = ft_pb(&a, b, len_a, len_b);
 	b = ft_pb(&a, b, len_a, len_b);
-	lis = ft_lis(a, *len_a, &lis_len);
-	/// testing ///
-	int k = -1;
-	while (++k < lis_len)
-		printf("%d ", lis[k]);
-	printf("\n");
-	/// end testing ///
-	while (*len_a != lis_len)
+
+	lis_and_lisl = ft_lis(a, *len_a);
+	while (*len_a != lis_and_lisl[1][0])
 	{
+		alen_blen[0] = *len_a;
+		alen_blen[1] = *len_b;
 		// write(1, "ASP\n", 4); //////
-		i1_i2 = ft_fstmv(a, b, *len_a, *len_b);
+		i1_i2 = ft_fstmv(a, b, alen_blen, lis_and_lisl);
 		// write(1, "A0P\n", 4); //////
 		// if (0)  ////
 		// 	break; ///
@@ -49,9 +45,21 @@ void	push_swap(int *a, int *b, int *len_a, int *len_b)
 			ft_rb(b, *len_b, 1);
 		// write(1, "A3P\n", 4); //////
 		b = ft_pb(&a, b, len_a, len_b);
+		/// testing  ///
+		int k = -1;
+		while (++k < *len_a)
+			printf("%d ", a[k]);
+		printf("\n");
+		k = -1;
+		while (++k < *len_b)
+			printf("%d ", b[k]);
+		printf("\n");
+		/// end testing ///
 	}
 	free(i1_i2);
-	free(lis);
+	free(lis_and_lisl[0]);
+	free(lis_and_lisl[1]);
+	free(lis_and_lisl);
 }
 
 int	main(int ac, char **av)
@@ -82,6 +90,7 @@ int	main(int ac, char **av)
 	while (++i < len_a)
 		printf("%d ", a[i]);
 	printf("\n");
+	printf("a: %p	b: %p\n", a, b);
 	/// end testing ///
 	free(a);
 	free(b);

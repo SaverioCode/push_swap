@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 23:15:31 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/13 23:26:23 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/14 23:54:55 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	find_max_id(int *stack, int len_s)
 
 	i = 0;
 	max = i;
-	while (i < len_s)
+	while (++i < len_s)
 		if (stack[max] < stack[i])
 			max = i;
 	return (max);

@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 23:37:52 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/11 22:19:58 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/14 22:44:13 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,22 @@ int	*create_lis(int *stack, int *P, int *M, int len)
 	return (arr);
 }
 
-int	*ft_lis(int *stack, int s_len, int *lis_len)
+int	**ft_unifed(int *lis, int lisl)
 {
-	int	*lis;
+	int	**lis_and_lisl;
+	int	*lislen;
+
+	lis_and_lisl = ft_malloc(2 * 8);
+	lislen = ft_malloc(4);
+	lislen[0] = lisl;
+	lis_and_lisl[0] = lis;
+	lis_and_lisl[1] = lislen;
+	return (lis_and_lisl);
+}
+
+int	**ft_lis(int *stack, int s_len)
+{
+	int	**lis_and_lisl;
 	int	*P;
 	int	*M;
 	int	len_newl[2];
@@ -69,9 +82,8 @@ int	*ft_lis(int *stack, int s_len, int *lis_len)
 		if (len_newl[1] > len_newl[0])
 			len_newl[0] = len_newl[1];
 	}
-	*lis_len = len_newl[0];
-	lis = create_lis(stack, P, M, len_newl[0]);
+	lis_and_lisl = ft_unifed(create_lis(stack, P, M, len_newl[0]), len_newl[0]);
 	free(P);
 	free(M);
-	return (lis);
+	return (lis_and_lisl);
 }

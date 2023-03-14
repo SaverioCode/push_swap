@@ -6,17 +6,40 @@
 
 int main()
 {
-	int x[8] = {109, 40, -128, 196, -151, -245, -166, 19};
-	int	*arr;
-	int	n = 8;
-	int	i = 0;
+	// int x[8] = {109, 40, -128, 196, -151, -245, -166, 19};
+	// int	*arr;
+	// int	n = 8;
+	// int	i = 0;
 
-	arr = x;
-	ft_rb(arr, n, 1);
-	while (i < n)
+	// arr = x;
+	// ft_rb(arr, n, 1);
+	// while (i < n)
+	// {
+	// 	printf("%d ", arr[i]);
+	// 	i++;
+	// }
+	int **a_and_b;
+	int *a = malloc(3 * 4);
+	int	*b = malloc(3 * 4);
+	a_and_b = malloc(2 * 8);
+	int	i = -1;
+	while (++i < 3)
 	{
-		printf("%d ", arr[i]);
-		i++;
+		a[i] = i + 1;
+		b[i] = i + 4;
 	}
+	a_and_b[0] = a;
+	a_and_b[1] = b;
+	i = -1;
+	while (++i < 3)
+		printf("%d ", a_and_b[1][i]);
+	printf("\n");
+	i = -1;
+	while (++i < 3)
+		printf("%d ", a_and_b[0][i]);
+	printf("\n");
+	free(a_and_b);
+	free(a);
+	free(b);
 	return (0);
 }
