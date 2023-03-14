@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:51:27 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/14 22:58:09 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:36:29 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int		is_lowest(int *stack, int len_s, int i);
 int		find_lowest_id(int *stack, int len_s);
 int		is_max(int *stack, int len_s, int i);
 int		find_max_id(int *stack, int len_s);
+void	put_first_three(int	**a, int **b, int *len_a, int *len_b);
 
 #endif

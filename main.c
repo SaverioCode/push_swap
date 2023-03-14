@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/15 00:22:58 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:32:57 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ int	main(int ac, char **av)
 	b = ft_malloc(1);
 	ft_astai(a, av[1]);
 	// do the magic //
+	/// handle special case if length of stack a is 3 ///
+		/// handle here ///
+	/// ft_putfirsthree() /// before starting the game
 	write(1, "A\n", 2);
 	push_swap(&a, &b, &len_a, &len_b);   /// still in testing
 	write(1, "B\n", 2); /////////
