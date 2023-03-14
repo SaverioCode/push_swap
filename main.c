@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/15 00:54:51 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/15 00:56:17 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	main(int ac, char **av)
 	ft_astai(a, av[1]);
 	// do the magic //
 	/// handle special case if length of stack a is 3 ///
+			/// do it here ///
 	put_first_three(&a, &b, &len_a, &len_b);
 	write(1, "A\n", 2);
 	push_swap(&a, &b, &len_a, &len_b);   /// still in testing
