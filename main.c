@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/15 23:54:41 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/16 00:23:35 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,13 @@
 
 void	push_swap(t_stack *s)
 {
-	int	**lis_and_lisl;
 	int	*i1_i2;  // numero da inserire, indice del numero da inserire, indice del numero nell'altro stack
 	int alen_blen[2];
 
-	lis_and_lisl = ft_lis(*a, *len_a);
-	while (*len_a != lis_and_lisl[1][0])
+	ft_lis(s);
+	while (s->len_a != s->len_l)
 	{
-		alen_blen[0] = *len_a;
-		alen_blen[1] = *len_b;
-		i1_i2 = ft_fstmv(*a, *b, alen_blen, lis_and_lisl);
+		i1_i2 = ft_fstmv(s);
 		while (i1_i2[0] > 0 && i1_i2[1] > 0 && i1_i2[0]-- && i1_i2[1]--)
 			ft_rr(s);
 		while (i1_i2[0] > 0 && i1_i2[0]--)
@@ -33,9 +30,7 @@ void	push_swap(t_stack *s)
 		ft_pb(s);
 		free(i1_i2);
 	}
-	free(lis_and_lisl[0]);
-	free(lis_and_lisl[1]);
-	free(lis_and_lisl);
+	free(s->lis);
 }
 
 int	main(int ac, char **av)
@@ -62,11 +57,11 @@ int	main(int ac, char **av)
 	// write(1, "B\n", 2); /////////
 	// // magic ended //
 	/// testing ///
-	printf("len a: %d\n", s.len_a);
-	int i = -1;
-	while (++i < s.len_a)
-		printf("%d ", s.a[i]);
-	printf("\n");
+	// printf("len a: %d\n", s.len_a);
+	// int i = -1;
+	// while (++i < s.len_a)
+	// 	printf("%d ", s.a[i]);
+	// printf("\n");
 	// i = -1;
 	// while (++i < len_b)
 	// 	printf("%d ", b[i]);

@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/15 22:39:14 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/16 00:23:13 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	updt_fstmv(int i1, int i2, int *moves, int *i1_i2)
 	}
 }
 
-int	*ft_fstmv(int *a, int *b, int *alen_blen, int **lis_and_lisl)
+int	*ft_fstmv(t_stack *s)
 {
 	int	*i1_i2;
 	int	moves;
@@ -77,26 +77,26 @@ int	*ft_fstmv(int *a, int *b, int *alen_blen, int **lis_and_lisl)
 	moves = 100000;
 	i1_i2 = ft_malloc(2 * 4);
 	i = -1;
-	while (++i < alen_blen[0])
+	while (++i < s->len_a)
 	{
 		/// see how to make better the next 4 lines
-		while (i < alen_blen[0] && ft_islis(lis_and_lisl, a[i]))
+		while (i < s->len_a && ft_islis(s, s->a[i]))
 			i++;
-		if (i >= alen_blen[0])
+		if (i >= s->len_a)
 			break;
-		if (is_lowest(a, alen_blen[0], i))
-			updt_fstmv(i, find_lowest_id(b, alen_blen[1]), &moves, i1_i2);
-		else if (is_max(a, alen_blen[0], i))
-			updt_fstmv(i, find_max_id(b, alen_blen[1]), &moves, i1_i2);
+		if (is_lowest(s->a, s->len_a, i))
+			updt_fstmv(i, find_lowest_id(s->b, s->len_b), &moves, i1_i2);
+		else if (is_max(s->a, s->len_a, i))
+			updt_fstmv(i, find_max_id(s->b, s->len_b), &moves, i1_i2);
 		else
 		{	
-			if (is_suitable_1(a, b, alen_blen[1], i))
+			if (is_suitable_1(s->a, s->b, s->len_b, i))
 				updt_fstmv(i, 0, &moves, i1_i2);
 	/// j1 parte da 2 poiche i primi due casi sono "speciali" e gestiti da due diverse funzioni ///
 			j = 0;
 	/// impongo di vedere solo fino a dieci posizioni nello stack b ///
-			while (++j < alen_blen[1])
-				if (is_suitable(a, b, i, j))
+			while (++j < s->len_b)
+				if (is_suitable(s->a, s->b, i, j))
 					updt_fstmv(i, j, &moves, i1_i2);
 			/// think about creating special case for last element of b like the first two
 		}

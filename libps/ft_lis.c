@@ -6,24 +6,24 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 23:37:52 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/14 22:44:13 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/16 00:12:11 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_len(int *stack, int *M, int lis_len, int i)
+int	find_len(t_stack *s, int *M, int i)
 {
 	int	low;
 	int	mid;
 	int	hi;
 
 	low = 1;
-	hi = lis_len + 1;
+	hi = s->len_l + 1;
 	while (low < hi)
 	{
 		mid = low + (hi - low) / 2;
-		if (stack[M[mid]] >= stack[i])
+		if (s->a[M[mid]] >= s->a[i])
 			hi = mid;
 		else
 			low = mid + 1;
@@ -31,59 +31,46 @@ int	find_len(int *stack, int *M, int lis_len, int i)
 	return (low);
 }
 
-int	*create_lis(int *stack, int *P, int *M, int len)
+void	create_lis(t_stack *s, int *P, int *M)
 {
 	int	*arr;
 	int	i;
 	int	j;
 
-	arr = ft_malloc(len * 4);
-	j = M[len];
-	i = len - 1;
+	arr = ft_malloc(s->len_l * 4);
+	j = M[s->len_l];
+	i = s->len_l - 1;
 	while (i >= 0)
 	{
-		arr[i] = stack[j];
+		arr[i] = s->a[j];
 		j = P[j];
 		i--;
 	}
-	return (arr);
+	s->lis = arr;
 }
 
-int	**ft_unifed(int *lis, int lisl)
+void	ft_lis(t_stack *s)
 {
-	int	**lis_and_lisl;
-	int	*lislen;
-
-	lis_and_lisl = ft_malloc(2 * 8);
-	lislen = ft_malloc(4);
-	lislen[0] = lisl;
-	lis_and_lisl[0] = lis;
-	lis_and_lisl[1] = lislen;
-	return (lis_and_lisl);
-}
-
-int	**ft_lis(int *stack, int s_len)
-{
-	int	**lis_and_lisl;
+	int	len_a;
 	int	*P;
 	int	*M;
-	int	len_newl[2];
+	int	newl;
 	int	i;
 
-	P = ft_malloc(s_len * 4);
-	M = ft_malloc((s_len + 1) * 4);
-	len_newl[0] = 0;
+	len_a = s->len_a;
+	P = ft_malloc(len_a * 4);
+	M = ft_malloc((len_a + 1) * 4);
+	s->len_l = 0;
 	i = -1;
-	while (++i < s_len)
+	while (++i < len_a)
 	{
-		len_newl[1] = find_len(stack, M, len_newl[0], i);
-		P[i] = M[len_newl[1] - 1];
-		M[len_newl[1]] = i;
-		if (len_newl[1] > len_newl[0])
-			len_newl[0] = len_newl[1];
+		newl = find_len(s, M, i);
+		P[i] = M[newl - 1];
+		M[newl] = i;
+		if (newl > s->len_l)
+			s->len_l = newl;
 	}
-	lis_and_lisl = ft_unifed(create_lis(stack, P, M, len_newl[0]), len_newl[0]);
+	create_lis(s, P, M);
 	free(P);
 	free(M);
-	return (lis_and_lisl);
 }
