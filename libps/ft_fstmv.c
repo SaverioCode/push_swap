@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/15 03:06:52 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/15 03:09:12 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	*ft_fstmv(int *a, int *b, int *alen_blen, int **lis_and_lisl)
 	/// j1 parte da 2 poiche i primi due casi sono "speciali" e gestiti da due diverse funzioni ///
 			j = 1;
 	/// impongo di vedere solo fino a dieci posizioni nello stack b ///
-			while (++j < (alen_blen[1] - 1) && j < 10) /// remove -1
+			while (++j < alen_blen[1] && j < 10) /// remove -1
 				if (is_suitable(a, b, i, j))
 					updt_fstmv(i, j, &moves, i1_i2);
 			/// think about creating special case for last element of b like the first two
