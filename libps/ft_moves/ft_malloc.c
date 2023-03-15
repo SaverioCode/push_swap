@@ -6,11 +6,11 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:21:30 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/09 16:23:21 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/15 23:33:33 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	*ft_malloc(int bytes)
 {
