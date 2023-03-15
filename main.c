@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/15 18:59:10 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:17:29 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void	push_swap(int **a, int **b, int *len_a, int *len_b)
 		{	ft_rb(*b, *len_b, 1);}
 		*b = ft_pb(a, *b, len_a, len_b);
 		/// testing ///
-		int k = -1;
-		while (++k < *len_b)
-			printf("%d ", (*b)[k]);
-		printf("\n");
+		// int k = -1;
+		// while (++k < *len_b)
+		// 	printf("%d ", (*b)[k]);
+		// printf("\n");
 		/// end testing ///
 		free(i1_i2);
 	}
