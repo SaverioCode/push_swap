@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/15 03:09:12 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:12:15 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,14 @@
 
 int	is_suitable_1(int *s1, int *s2, int len_s2, int i)
 {
-	if (s1[i] < s2[0] && s1[i] < s2[len_s2 - 1] && s1[i] > s2[len_s2 - 2])
-		return (1);
-	return (0);
-}
-
-int	is_suitable_2(int *s1, int *s2, int len_s2, int i)
-{
-	if (s1[i] < s2[1] && s1[i] < s2[0] && s1[i] > s2[len_s2 - 1])
+	if (s1[i] < s2[0] && s1[i] > s2[len_s2 - 1])
 		return (1);
 	return (0);
 }
 
 int	is_suitable(int *s1, int *s2, int i1, int i2)
 {
-	if (s1[i1] < s2[i2] && s1[i1] < s2[i2 - 1] && s1[i1] > s2[i2 - 2])
+	if (s1[i1] < s2[i2] && s1[i1] > s2[i2 - 1])
 		return (1);
 	return (0);
 }
@@ -84,7 +77,7 @@ int	*ft_fstmv(int *a, int *b, int *alen_blen, int **lis_and_lisl)
 	moves = 100000;
 	i1_i2 = ft_malloc(2 * 4);
 	i = -1;
-	while (++i < alen_blen[0])  /// remove "-1"
+	while (++i < alen_blen[0])
 	{
 		/// see how to make better the next 4 lines
 		while (i < alen_blen[0] && ft_islis(lis_and_lisl, a[i]))
@@ -99,12 +92,10 @@ int	*ft_fstmv(int *a, int *b, int *alen_blen, int **lis_and_lisl)
 		{	
 			if (is_suitable_1(a, b, alen_blen[1], i))
 				updt_fstmv(i, 0, &moves, i1_i2);
-			if (is_suitable_2(a, b, alen_blen[1], i))
-				updt_fstmv(i, 1, &moves, i1_i2);
 	/// j1 parte da 2 poiche i primi due casi sono "speciali" e gestiti da due diverse funzioni ///
-			j = 1;
+			j = 0;
 	/// impongo di vedere solo fino a dieci posizioni nello stack b ///
-			while (++j < alen_blen[1] && j < 10) /// remove -1
+			while (++j < alen_blen[1] && j < 10)
 				if (is_suitable(a, b, i, j))
 					updt_fstmv(i, j, &moves, i1_i2);
 			/// think about creating special case for last element of b like the first two

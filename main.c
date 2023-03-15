@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/15 02:15:01 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:59:10 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ void	push_swap(int **a, int **b, int *len_a, int *len_b)
 		while (i1_i2[1] > 0 && i1_i2[1]--)
 		{	ft_rb(*b, *len_b, 1);}
 		*b = ft_pb(a, *b, len_a, len_b);
+		/// testing ///
+		int k = -1;
+		while (++k < *len_b)
+			printf("%d ", (*b)[k]);
+		printf("\n");
+		/// end testing ///
 		free(i1_i2);
 	}
 	free(lis_and_lisl[0]);
@@ -58,10 +64,10 @@ int	main(int ac, char **av)
 			/// do it here ///
 	put_first_three(&a, &b, &len_a, &len_b);
 	// /// testing ///
-	// int k = -1;
-	// while (++k < len_b)
-	// 	printf("%d ", b[k]);
-	// printf("\n");
+	int k = -1;
+	while (++k < len_b)
+		printf("%d ", b[k]);
+	printf("\n");
 	// /// end testing ///
 	push_swap(&a, &b, &len_a, &len_b);   /// still in testing
 	write(1, "B\n", 2); /////////
