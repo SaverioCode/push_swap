@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:29:54 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/15 23:35:18 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/15 23:52:15 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_pb(t_stack *s)
 		new_b[i] = s->b[i - 1];
 	(s->len_a)--;
 	free(s->b);
-	s->a = ft_new_a(s->a, s->len_a);
+	ft_new_a(s);
 	write(1, "pb\n", 3);
 	s->b = new_b;
 }
