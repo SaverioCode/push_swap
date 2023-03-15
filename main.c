@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/15 19:17:29 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:18:29 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	push_swap(int **a, int **b, int *len_a, int *len_b)
 		alen_blen[0] = *len_a;
 		alen_blen[1] = *len_b;
 		i1_i2 = ft_fstmv(*a, *b, alen_blen, lis_and_lisl);
-		printf("index a: %d     index b: %d\n", i1_i2[0], i1_i2[1]); /////
-		printf("%-9d     %-9d\n", (*a)[i1_i2[0]], (*b)[i1_i2[1]]); /////
 		while (i1_i2[0] > 0 && i1_i2[1] > 0 && i1_i2[0]-- && i1_i2[1]--)
 			ft_rr(*a, *b, *len_a, *len_b);
 		while (i1_i2[0] > 0 && i1_i2[0]--)
@@ -33,12 +31,6 @@ void	push_swap(int **a, int **b, int *len_a, int *len_b)
 		while (i1_i2[1] > 0 && i1_i2[1]--)
 		{	ft_rb(*b, *len_b, 1);}
 		*b = ft_pb(a, *b, len_a, len_b);
-		/// testing ///
-		// int k = -1;
-		// while (++k < *len_b)
-		// 	printf("%d ", (*b)[k]);
-		// printf("\n");
-		/// end testing ///
 		free(i1_i2);
 	}
 	free(lis_and_lisl[0]);
