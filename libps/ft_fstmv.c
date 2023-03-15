@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/15 00:23:31 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/15 03:06:52 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,13 @@ int	*ft_fstmv(int *a, int *b, int *alen_blen, int **lis_and_lisl)
 	moves = 100000;
 	i1_i2 = ft_malloc(2 * 4);
 	i = -1;
-	while (++i < alen_blen[0])
+	while (++i < alen_blen[0])  /// remove "-1"
 	{
-		while (ft_islis(lis_and_lisl, a[i]) && i < alen_blen[0])
+		/// see how to make better the next 4 lines
+		while (i < alen_blen[0] && ft_islis(lis_and_lisl, a[i]))
 			i++;
+		if (i >= alen_blen[0])
+			break;
 		if (is_lowest(a, alen_blen[0], i))
 			updt_fstmv(i, find_lowest_id(b, alen_blen[1]), &moves, i1_i2);
 		else if (is_max(a, alen_blen[0], i))
@@ -101,10 +104,11 @@ int	*ft_fstmv(int *a, int *b, int *alen_blen, int **lis_and_lisl)
 	/// j1 parte da 2 poiche i primi due casi sono "speciali" e gestiti da due diverse funzioni ///
 			j = 1;
 	/// impongo di vedere solo fino a dieci posizioni nello stack b ///
-			while (++j < alen_blen[1] && j < 10)
+			while (++j < (alen_blen[1] - 1) && j < 10) /// remove -1
 				if (is_suitable(a, b, i, j))
 					updt_fstmv(i, j, &moves, i1_i2);
+			/// think about creating special case for last element of b like the first two
 		}
 	}
-	return (i1_i2);
+	return (i1_i2); 
 }
