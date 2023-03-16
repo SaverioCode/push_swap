@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 01:48:11 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/17 00:49:01 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/17 00:51:44 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,9 @@ int	is_suitable(int *s_from, int *s_to, int id_from, int id_to)
 	return (0);
 }
 
-int	chk_fstmv_eq(int id_from, int id_to)
-{
-	if (id_from > id_to)
-		return (1);
-	return (0);
-}
-
 int	fstmv_eq(int id_from, int id_to, t_stack *s)
 {
-	if (chk_fstmv_eq(id_from, id_to))
+	if (id_from > id_to)
 	{	
 		if (id_from < s->moves)
 		{	

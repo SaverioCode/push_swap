@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:55:49 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/17 00:48:37 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/17 00:53:02 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,6 @@ int	is_suitable_rev(int *s_from, int *s_to, int id_from, int id_to)
 	return (0);
 }
 
-int	chk_fstmv_eq_rev(int id_from, int id_to, int len_from, int len_to)
-{
-	if ((len_from - id_from) > (len_to - id_to))
-		return (1);
-	return (0);
-}
-
 void	set_len_from_and_len_to(int	len_from, int len_to, t_stack *s)
 {
 	s->len_from = len_from;
@@ -41,7 +34,7 @@ void	set_len_from_and_len_to(int	len_from, int len_to, t_stack *s)
 
 int	fstmv_eq_rev(int id_from, int id_to, t_stack *s)
 {
-	if (chk_fstmv_eq_rev(id_from, id_to, s->len_from, s->len_to))
+	if (s->len_from - s->id_from > s->len_to - s->id_to)
 	{	
 		if (s->len_from - id_from < s->moves)
 		{

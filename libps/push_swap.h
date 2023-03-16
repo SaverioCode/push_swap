@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:51:27 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/16 23:48:20 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/17 00:53:10 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ int		is_suitable_0(int *s_from, int *s_to, int len_to, int i);
 int		is_suitable_0_rev(int *s_from, int *s_to, int len_to, int i);
 int		is_suitable(int *s_from, int *s_to, int id_from, int id_to);
 int		is_suitable_rev(int *s_from, int *s_to, int id_from, int id_to);
-int		chk_fstmv_eq(int id_from, int id_to);
-int		chk_fstmv_eq_rev(int id_from, int id_to, int len_from, int len_to);
 void	set_len_from_and_len_to(int	len_from, int len_to, t_stack *s);
 int		fstmv_eq(int id_from, int id_to, t_stack *s);
 int		fstmv_eq_rev(int id_from, int id_to, t_stack *s);
