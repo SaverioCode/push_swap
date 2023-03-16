@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/16 23:30:13 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/16 23:53:36 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,11 @@ void	updt_fstmv(int id_from, int id_to, t_stack *s, int flag)
 {
 	if (flag == 1)
 	{
-		if (fstmv_eq(id_from, id_to, s->moves))
+		if (fstmv_eq(id_from, id_to, s))
 		{
 			s->id_from = id_from;
 			s->id_to = id_to;
-			s->moves = (2 * id_from) - id_to;
-			s->rev_or_not = 0;
+			s->rev_or_not = 1;
 		}
 	}
 	else if (flag == 0)
@@ -69,8 +68,7 @@ void	updt_fstmv(int id_from, int id_to, t_stack *s, int flag)
 		{
 			s->id_from = id_from;
 			s->id_to = id_to;
-			s->moves = (2 * (s->len_from - id_from)) - (s->len_to - id_to);
-			s->rev_or_not = 1;
+			s->rev_or_not = 0;
 		}
 	}
 }
@@ -88,6 +86,7 @@ void	ft_fstmv(t_stack *s)
 			break ;
 		fstmv_start_end(s, i);
 	}
+	// printf("moves not rev: %d\n", s->moves); //////
 	i = (s->len_a / 2) + 1;
 	set_len_from_and_len_to(s->len_a, s->len_b, s);
 	while (--i >= 0)
@@ -98,4 +97,5 @@ void	ft_fstmv(t_stack *s)
 			break;
 		fstmv_end_start(s, i);
 	}
+	// printf("moves rev: %d\n", s->moves); //////
 }

@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:55:49 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/16 22:49:30 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/16 23:49:04 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,15 @@ int	fstmv_eq_rev(int id_from, int id_to, t_stack *s)
 	if (chk_fstmv_eq_rev(id_from, id_to, s->len_from, s->len_to))
 	{	
 		if ((2 * (s->len_from - id_from)) - (s->len_to - id_to) < s->moves)
+		{
+			s->moves = (2 * (s->len_from - id_from)) - (s->len_to - id_to);
 			return (1);
+		}
 	}
 	else if ((s->len_to - id_to) - (2 * (s->len_from - id_from)) < s->moves)
-			return (1);
+	{
+		s->moves = (s->len_to - id_to) - (2 * (s->len_from - id_from));
+		return (1);
+	}
 	return (0);
 }
