@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/16 01:01:03 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/16 01:26:37 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // "1" refers to the s where you take the num //
 // "2" refers to the s where you put the num //
 
-int	is_suitable_1(int *s1, int *s2, int len_s2, int i)
+int	is_suitable_0(int *s1, int *s2, int len_s2, int i)
 {
 	if (s1[i] < s2[0] && s1[i] > s2[len_s2 - 1])
 		return (1);
@@ -52,54 +52,52 @@ int	fstmv_eq(int i1, int i2, int moves, int flag)
 	return (0);
 }
 
-void	updt_fstmv(int i1, int i2, int *moves, int *i1_i2)
+void	updt_fstmv(int i1, int i2, t_stack *s)
 {
 	int	flag;
 
 	flag = 0;
 	if (chk_fstmv_eq(i1, i2))
 		flag = 1;
-	if (fstmv_eq(i1, i2, *moves, flag))
+	if (fstmv_eq(i1, i2, s->moves, flag))
 	{
-		i1_i2[0] = i1;
-		i1_i2[1] = i2;
-		*moves = (2 * i1) - i2;
+		s->id_from = i1;
+		s->id_to = i2;
+		s->moves = (2 * i1) - i2;
 	}
 }
 
-int	*ft_fstmv(t_stack *s)
+int	lowest_or_max(t_stack *s, int i)
 {
-	int	*i1_i2;
-	int	moves;
+	if (is_lowest(s->b, s->len_b, s->a[i]))
+		updt_fstmv(i, find_lowest_id(s->b, s->len_b), s);
+	else if (is_max(s->b, s->len_b, s->a[i]))
+		updt_fstmv(i, find_max_id(s->b, s->len_b), s);
+	else
+		return (0);
+	return (1);
+}
+
+void	ft_fstmv(t_stack *s)
+{
 	int	i;
 	int	j;
 
-	moves = 100000;
-	i1_i2 = ft_malloc(2 * 4);
 	i = -1;
 	while (++i < s->len_a)
 	{
-		/// see how to make better the next 4 lines
 		while (i < s->len_a && ft_islis(s, s->a[i]))
 			i++;
 		if (i >= s->len_a)
 			break;
-		if (is_lowest(s->b, s->len_b, s->a[i]))
-			updt_fstmv(i, find_lowest_id(s->b, s->len_b), &moves, i1_i2);
-		else if (is_max(s->b, s->len_b, s->a[i]))
-			updt_fstmv(i, find_max_id(s->b, s->len_b), &moves, i1_i2);
-		else
-		{	
-			if (is_suitable_1(s->a, s->b, s->len_b, i))
-				updt_fstmv(i, 0, &moves, i1_i2);
-	/// j1 parte da 2 poiche i primi due casi sono "speciali" e gestiti da due diverse funzioni ///
+		if (!(lowest_or_max))
+		{
+			if (is_suitable_0(s->a, s->b, s->len_b, i))
+				updt_fstmv(i, 0, s);
 			j = 0;
-	/// impongo di vedere solo fino a dieci posizioni nello stack b ///
 			while (++j < s->len_b)
 				if (is_suitable(s->a, s->b, i, j))
-					updt_fstmv(i, j, &moves, i1_i2);
-			/// think about creating special case for last element of b like the first two
+					updt_fstmv(i, j, s);
 		}
 	}
-	return (i1_i2); 
 }

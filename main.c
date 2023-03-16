@@ -6,28 +6,32 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/16 01:03:11 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/16 01:17:03 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libps/push_swap.h"
 
+// void	ft_make_moves(t_stack *s)
+// {
+	
+// }
+
 void	push_swap(t_stack *s)
 {
-	int	*i1_i2;  // numero da inserire, indice del numero da inserire, indice del numero nell'altro stack
-
 	ft_lis(s);
+	s->moves = 1000;
 	while (s->len_a != s->len_l)
 	{
-		i1_i2 = ft_fstmv(s);
-		while (i1_i2[0] > 0 && i1_i2[1] > 0 && i1_i2[0]-- && i1_i2[1]--)
+		ft_fstmv(s);
+		while (s->id_from > 0 && s->id_to > 0 && s->id_from-- && s->id_to--)
 			ft_rr(s);
-		while (i1_i2[0] > 0 && i1_i2[0]--)
+		while (s->id_from > 0 && s->id_from--)
 			ft_ra(s, 1);
-		while (i1_i2[1] > 0 && i1_i2[1]--)
+		while (s->id_to > 0 && s->id_to--)
 			ft_rb(s, 1);
 		ft_pb(s);
-		free(i1_i2);
+		s->moves = 1000;
 	}
 	free(s->lis);
 }
@@ -46,14 +50,7 @@ int	main(int ac, char **av)
 	/// handle special case if length of stack a is 3 ///
 			/// do it here ///
 	put_first_three(&s);
-	// /// testing ///
-	// int k = -1;
-	// while (++k < s.len_b)
-	// 	printf("%d ", s.b[k]);
-	// printf("\n");
-	// // /// end testing ///
-	push_swap(&s);   /// still in testing
-	// write(1, "B\n", 2); /////////
+	push_swap(&s);
 	// // magic ended //
 	/// testing ///
 	// printf("len a: %d\n", s.len_a);
