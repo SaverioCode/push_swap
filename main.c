@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/16 00:23:35 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/16 01:03:11 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	push_swap(t_stack *s)
 {
 	int	*i1_i2;  // numero da inserire, indice del numero da inserire, indice del numero nell'altro stack
-	int alen_blen[2];
 
 	ft_lis(s);
 	while (s->len_a != s->len_l)
@@ -63,10 +62,9 @@ int	main(int ac, char **av)
 	// 	printf("%d ", s.a[i]);
 	// printf("\n");
 	// i = -1;
-	// while (++i < len_b)
-	// 	printf("%d ", b[i]);
+	// while (++i < s.len_b)
+	// 	printf("%d ", s.b[i]);
 	// printf("\n");
-	// printf("a: %p	b: %p\n", a, b);
 	/// end testing ///
 	free(s.a);
 	free(s.b);

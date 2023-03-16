@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/16 00:23:13 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/16 01:01:03 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,9 @@ int	*ft_fstmv(t_stack *s)
 			i++;
 		if (i >= s->len_a)
 			break;
-		if (is_lowest(s->a, s->len_a, i))
+		if (is_lowest(s->b, s->len_b, s->a[i]))
 			updt_fstmv(i, find_lowest_id(s->b, s->len_b), &moves, i1_i2);
-		else if (is_max(s->a, s->len_a, i))
+		else if (is_max(s->b, s->len_b, s->a[i]))
 			updt_fstmv(i, find_max_id(s->b, s->len_b), &moves, i1_i2);
 		else
 		{	
