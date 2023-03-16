@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/16 01:17:03 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/16 01:38:13 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,15 @@ int	main(int ac, char **av)
 	push_swap(&s);
 	// // magic ended //
 	/// testing ///
-	// printf("len a: %d\n", s.len_a);
-	// int i = -1;
-	// while (++i < s.len_a)
-	// 	printf("%d ", s.a[i]);
-	// printf("\n");
-	// i = -1;
-	// while (++i < s.len_b)
-	// 	printf("%d ", s.b[i]);
-	// printf("\n");
+	printf("len a: %d\n", s.len_a);
+	int i = -1;
+	while (++i < s.len_a)
+		printf("%d ", s.a[i]);
+	printf("\n");
+	i = -1;
+	while (++i < s.len_b)
+		printf("%d ", s.b[i]);
+	printf("\n");
 	/// end testing ///
 	free(s.a);
 	free(s.b);

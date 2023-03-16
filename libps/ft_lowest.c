@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 00:06:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/16 00:59:17 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/16 01:35:05 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ int	find_lowest_id(int *stack, int len_s)
 	while (++i < len_s)
 		if (stack[lowest] > stack[i])
 			lowest = i;
-	printf("lowest id: %d \n", lowest); //////
 	return (lowest);
 }
