@@ -6,16 +6,51 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/16 01:38:13 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/16 23:29:42 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libps/push_swap.h"
 
-// void	ft_make_moves(t_stack *s)
-// {
-	
-// }
+void	ft_make_moves_to_the_left(t_stack *s, void r_from(), void r_to())
+{
+	while (s->id_from > 0 && s->id_to > 0)
+	{
+		ft_rr(s);
+		s->id_from--;
+		s->id_to--;
+	}
+	while (s->id_from > 0)
+	{
+		r_from(s, 1);
+		s->id_from--;
+	}
+	while (s->id_to > 0)
+	{
+		r_to(s, 1);
+		s->id_to--;
+	}
+}
+
+void	ft_make_moves_to_the_right(t_stack *s, void rr_from(), void rr_to())
+{
+	while (s->id_from < s->len_from && s->id_to > s->len_to)
+	{
+		ft_rrr(s);
+		s->id_from++;
+		s->id_to++;
+	}
+	while (s->id_from < s->len_from)
+	{
+		rr_from(s, 1);
+		s->len_from++;
+	}
+	while (s->id_to < s->len_to)
+	{
+		rr_to(s, 1);
+		s->len_to++;
+	}
+}
 
 void	push_swap(t_stack *s)
 {
@@ -24,12 +59,10 @@ void	push_swap(t_stack *s)
 	while (s->len_a != s->len_l)
 	{
 		ft_fstmv(s);
-		while (s->id_from > 0 && s->id_to > 0 && s->id_from-- && s->id_to--)
-			ft_rr(s);
-		while (s->id_from > 0 && s->id_from--)
-			ft_ra(s, 1);
-		while (s->id_to > 0 && s->id_to--)
-			ft_rb(s, 1);
+		if (s->rev_or_not)
+			ft_make_moves_to_the_left(s, ft_ra, ft_rb);
+		else
+			ft_make_moves_to_the_right(s, ft_rra, ft_rrb);
 		ft_pb(s);
 		s->moves = 1000;
 	}

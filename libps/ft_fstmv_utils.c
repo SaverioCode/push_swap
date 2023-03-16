@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 01:48:11 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/16 01:53:48 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/16 22:30:02 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,32 +33,14 @@ int	chk_fstmv_eq(int id_from, int id_to)
 	return (0);
 }
 
-int	fstmv_eq(int id_from, int id_to, int moves, int flag)
+int	fstmv_eq(int id_from, int id_to, int moves)
 {
-	if (flag == 1)
+	if (chk_fstmv_eq(id_from, id_to))
 	{	
 		if ((2 * id_from) - id_to < moves)
 			return (1);
 	}
-	else if (flag == 0)
-	{
-		if (id_to - (2 * id_from) < moves)
-			return (1);
-	}
+	else if (id_to - (2 * id_from) < moves)
+		return (1);
 	return (0);
-}
-
-void	updt_fstmv(int id_from, int id_to, t_stack *s)
-{
-	int	flag;
-
-	flag = 0;
-	if (chk_fstmv_eq(id_from, id_to))
-		flag = 1;
-	if (fstmv_eq(id_from, id_to, s->moves, flag))
-	{
-		s->id_from = id_from;
-		s->id_to = id_to;
-		s->moves = (2 * id_from) - id_to;
-	}
 }

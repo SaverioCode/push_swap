@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:51:27 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/16 01:08:24 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/16 23:29:57 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,14 @@ typedef struct stack_info
 	int	moves;
 	int	id_from;
 	int	id_to;
+	int	len_from;
+	int	len_to;
+	int	rev_or_not;
 }	t_stack;
 
+void	ft_rra(t_stack *s, int flag);
 void	ft_rrb(t_stack *s, int flag);
+void	ft_rrr(t_stack *s);
 void	ft_ra(t_stack *s, int flag);
 void	ft_rb(t_stack *s, int flag);
 void	ft_rr(t_stack *s);
