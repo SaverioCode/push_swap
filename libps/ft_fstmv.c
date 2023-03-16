@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/16 23:53:36 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/17 00:32:31 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	fstmv_end_start(t_stack *s, int i)
 		if (is_suitable_0_rev(s->a, s->b, s->len_b, i))
 			updt_fstmv(i, s->len_b, s, 0);
 		j = s->len_b - 1;
-		while (--j > (s->len_b / 2) + 1 )
+		while (--j > (s->len_b / 2) - 1)
 			if (is_suitable_rev(s->a, s->b, s->id_from, s->id_to))
 				updt_fstmv(i, j, s, 0);
 	}
@@ -80,20 +80,20 @@ void	ft_fstmv(t_stack *s)
 	i = -1;
 	while (++i < (s->len_a / 2) + 1)
 	{
-		while (i < s->len_a && ft_islis(s, s->a[i]))
+		while (i < (s->len_a / 2) + 1 && ft_islis(s, s->a[i]))
 			i++;
-		if (i >= s->len_a)
+		if (i >= (s->len_a / 2) + 1)
 			break ;
 		fstmv_start_end(s, i);
 	}
 	// printf("moves not rev: %d\n", s->moves); //////
-	i = (s->len_a / 2) + 1;
+	i = s->len_a;
 	set_len_from_and_len_to(s->len_a, s->len_b, s);
-	while (--i >= 0)
+	while (--i >= (s->len_a / 2) - 1)
 	{
-		while (i >= 0 && ft_islis(s, s->a[i]))
+		while (i >= (s->len_a / 2) - 1 && ft_islis(s, s->a[i]))
 			i++;
-		if (i >= 0)
+		if (i >= (s->len_a / 2) - 1)
 			break;
 		fstmv_end_start(s, i);
 	}
