@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/17 03:33:36 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:08:06 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	fstmv_start_end(t_stack *s, int i)
 		updt_fstmv(i, find_max_id(s->b, s->len_b), s, 1);
 	else
 	{
-		if (is_suitable_0(s->a, s->b, s->len_b, i))
+		if (is_suitable_0(s->a, s->b, s->len_b, i)) // sta roba va nel sitema incrociato
 			updt_fstmv(i, 0, s, 1);
 		j = 0;
 		while (++j < s->len_b)
@@ -41,12 +41,12 @@ void	fstmv_end_start(t_stack *s, int i)
 		updt_fstmv(i, find_max_id(s->b, s->len_b), s, 0);
 	else
 	{
-		if (is_suitable_0_rev(s->a, s->b, s->len_b, i))
-			updt_fstmv(i, s->len_b - 1, s, 0);
-		j = s->len_b - 1;
-		while (--j >= 0)
+		j = s->len_b;
+		while (--j > 0)
 			if (is_suitable_rev(s->a, s->b, i, j))
 				updt_fstmv(i, j, s, 0);
+		// if (is_suitable_0_rev(s->a, s->b, s->len_b, i)) // sta roba va nel sistema incrociato
+		// 	updt_fstmv(i, 0, s, 0);  // sistema condizione che va alla fine
 	}
 
 }
@@ -86,7 +86,6 @@ void	ft_fstmv(t_stack *s)
 			break ;
 		fstmv_start_end(s, i);
 	}
-	// printf("moves not rev: %d\n", s->moves); //////
 	i = s->len_a;
 	set_len_from_and_len_to(s->len_a, s->len_b, s);
 	while (--i >= 0)
@@ -97,5 +96,4 @@ void	ft_fstmv(t_stack *s)
 			break;
 		fstmv_end_start(s, i);
 	}
-	// printf("moves rev: %d\n", s->moves); //////
 }
