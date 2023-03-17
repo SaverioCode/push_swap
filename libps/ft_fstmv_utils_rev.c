@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:55:49 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/17 01:02:59 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/17 01:23:11 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	set_len_from_and_len_to(int	len_from, int len_to, t_stack *s)
 
 int	fstmv_eq_rev(int id_from, int id_to, t_stack *s)
 {
-	if (s->len_from - s->id_from > s->len_to - s->id_to)
+	if (s->len_from - id_from > s->len_to - id_to)
 	{	
 		if (s->len_from - id_from < s->moves)
 		{

@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/17 00:56:27 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/17 01:25:19 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	ft_fstmv(t_stack *s)
 	while (--i >= (s->len_a / 2) - 1)
 	{
 		while (i >= (s->len_a / 2) - 1 && ft_islis(s, s->a[i]))
-			i++;
+			i--;
 		if (i >= (s->len_a / 2) - 1)
 			break;
 		fstmv_end_start(s, i);
