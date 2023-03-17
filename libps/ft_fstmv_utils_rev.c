@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:55:49 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/17 01:23:11 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/17 02:59:14 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_suitable_0_rev(int *s_from, int *s_to, int len_to, int i)
 {
-	if (s_from[i] < s_to[len_to] && s_from[i] > s_to[0])
+	if (s_from[i] < s_to[len_to - 1] && s_from[i] > s_to[0])
 		return (1);
 	return (0);
 }
