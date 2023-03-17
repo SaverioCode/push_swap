@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/17 00:34:03 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/17 00:56:27 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	fstmv_end_start(t_stack *s, int i)
 			updt_fstmv(i, s->len_b, s, 0);
 		j = s->len_b - 1;
 		while (--j > (s->len_b / 2) - 1)
-			if (is_suitable_rev(s->a, s->b, s->id_from, s->id_to))
+			if (is_suitable_rev(s->a, s->b, i, j))
 				updt_fstmv(i, j, s, 0);
 	}
 
