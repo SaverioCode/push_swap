@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:19:12 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/15 23:46:21 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/18 03:56:39 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void	ft_ra(t_stack *s, int flag)
 	}
 	s->a[s->len_a - 1] = tmp1;
 	if (flag == 1)
-		write(1, "rb\n", 3);
+		write(1, "ra\n", 3);
 }

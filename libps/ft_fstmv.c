@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/17 21:08:06 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/18 05:17:40 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,26 @@ void	fstmv_start_end(t_stack *s, int i)
 {
 	int	j;
 
-	if (is_lowest(s->b, s->len_b, s->a[i]))
-		updt_fstmv(i, find_lowest_id(s->b, s->len_b), s, 1);
-	else if (is_max(s->b, s->len_b, s->a[i]))
-		updt_fstmv(i, find_max_id(s->b, s->len_b), s, 1);
+	if (is_lowest(s->a, s->len_a, s->b[i]))
+		updt_fstmv(i, find_lowest_id(s->a, s->len_a), s, 1);
+	else if (is_max(s->a, s->len_a, s->b[i]))
+		updt_fstmv(i, find_max_id(s->a, s->len_a), s, 1);
 	else
 	{
-		if (is_suitable_0(s->a, s->b, s->len_b, i)) // sta roba va nel sitema incrociato
+		if (is_suitable_0(s->b, s->a, s->len_a, i))
+		{
 			updt_fstmv(i, 0, s, 1);
+			updt_fstmv_crossed(i, 0, s, 3);
+		}
 		j = 0;
-		while (++j < s->len_b)
-			if (is_suitable(s->a, s->b, i, j))
+		while (++j < s->len_a)
+		{
+			if (is_suitable(s->b, s->a, i, j))
+			{	
 				updt_fstmv(i, j, s, 1);
+				updt_fstmv_crossed(i, j, s, 3);
+			}
+		}
 	}
 }
 
@@ -35,20 +43,42 @@ void	fstmv_end_start(t_stack *s, int i)
 {
 	int	j;
 
-	if (is_lowest(s->b, s->len_b, s->a[i]))
-		updt_fstmv(i, find_lowest_id(s->b, s->len_b), s, 0);
-	else if (is_max(s->b, s->len_b, s->a[i]))
-		updt_fstmv(i, find_max_id(s->b, s->len_b), s, 0);
+	if (is_lowest(s->a, s->len_b, s->b[i]))
+		updt_fstmv(i, find_lowest_id(s->a, s->len_a), s, 0);
+	else if (is_max(s->a, s->len_a, s->b[i]))
+		updt_fstmv(i, find_max_id(s->a, s->len_a), s, 0);
 	else
 	{
-		j = s->len_b;
+		j = s->len_a;
 		while (--j > 0)
-			if (is_suitable_rev(s->a, s->b, i, j))
+			if (is_suitable_rev(s->b, s->a, i, j))
 				updt_fstmv(i, j, s, 0);
 		// if (is_suitable_0_rev(s->a, s->b, s->len_b, i)) // sta roba va nel sistema incrociato
 		// 	updt_fstmv(i, 0, s, 0);  // sistema condizione che va alla fine
 	}
 
+}
+
+void	updt_fstmv_crossed(int id_from, int id_to, t_stack *s, int flag)
+{
+	if (flag == 3)
+	{
+		if (fstmv_eq_crossed(id_from, id_to, s))
+		{
+			s->id_from = id_from;
+			s->id_to = id_to;
+			s->rev_or_not = 3;
+		}
+	}
+	// else if (flag == 2)
+	// {
+	// 	if (fstmv_eq_crossed_rev())
+	// 	{
+	// 		s->id_from = id_from;
+	// 		s->id_to = id_to;
+	// 		s->rev_or_not = 2;
+	// 	}
+	// }
 }
 
 void	updt_fstmv(int id_from, int id_to, t_stack *s, int flag)
@@ -78,22 +108,12 @@ void	ft_fstmv(t_stack *s)
 	int	i;
 
 	i = -1;
-	while (++i < s->len_a)
-	{
-		while (i < s->len_a && ft_islis(s, s->a[i]))
-			i++;
-		if (i >= s->len_a)
-			break ;
+	s->moves = 1000;
+	set_len_from_and_len_to(s->len_b, s->len_a, s);
+	while (++i < s->len_b)
 		fstmv_start_end(s, i);
-	}
-	i = s->len_a;
-	set_len_from_and_len_to(s->len_a, s->len_b, s);
+	i = s->len_b;
 	while (--i >= 0)
-	{
-		while (i >= 0 && ft_islis(s, s->a[i]))
-			i--;
-		if (i < 0)
-			break;
 		fstmv_end_start(s, i);
-	}
+	s->tot_moves += s->moves;  ////////
 }

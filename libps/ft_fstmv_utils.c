@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 01:48:11 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/17 20:13:39 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/18 03:59:27 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@ int	is_suitable(int *s_from, int *s_to, int id_from, int id_to)
 {
 	if (s_from[id_from] < s_to[id_to] && s_from[id_from] > s_to[id_to - 1])
 		return (1);
+	return (0);
+}
+
+int	fstmv_eq_crossed(int id_from, int id_to, t_stack *s)
+{
+	if (id_to + (s->len_from - id_from) < s->moves)
+	{
+		s->moves = id_to + (s->len_from - id_from);
+		return (1);
+	}
 	return (0);
 }
 
