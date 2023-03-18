@@ -6,23 +6,19 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:55:49 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/17 21:03:23 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/18 07:49:35 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_suitable_0_rev(int *s_from, int *s_to, int len_to, int i)
+int	fstmv_eq_crossed_rev(int id_from, int id_to, t_stack *s)
 {
-	if (s_from[i] < s_to[0] && s_from[i] > s_to[len_to - 1])
+	if (id_from + (s->len_to - id_to) < s->moves)
+	{
+		s->moves = id_from + (s->len_to - id_to);
 		return (1);
-	return (0);
-}
-
-int	is_suitable_rev(int *s_from, int *s_to, int id_from, int id_to)
-{
-	if (s_from[id_from] < s_to[id_to] && s_from[id_from] > s_to[id_to - 1])
-		return (1);
+	}
 	return (0);
 }
 

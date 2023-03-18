@@ -6,11 +6,34 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/18 05:18:16 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/18 09:53:35 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libps/push_swap.h"
+
+void	ft_end_shorting(t_stack *s)
+{
+	int	lowest;
+
+	lowest = find_lowest_id(s->a, s->len_a);
+	if (lowest <= s->len_a / 2)
+	{	
+		while (lowest > 0)
+		{
+			ft_ra(s, 1);
+			lowest--;
+		}
+	}
+	if (lowest > s->len_a / 2)
+	{
+		while (lowest < s->len_a)
+		{
+			ft_rra(s, 1);
+			lowest++;
+		}
+	}
+}
 
 void	push_swap(t_stack *s)
 {
@@ -26,9 +49,9 @@ void	push_swap(t_stack *s)
 	{
 		ft_fstmv(s);
 		ft_make_moves(s);
-		printf("%d\n", s->b[0]); ////////
 		ft_pa(s);
 	}
+	ft_end_shorting(s);
 	printf("tot moves: %d\n", s->tot_moves); ///////
 	free(s->lis);
 }
