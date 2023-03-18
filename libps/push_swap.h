@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:51:27 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/18 07:58:06 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:23:20 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int		is_lowest(int *stack, int len_s, int num);
 int		find_lowest_id(int *stack, int len_s);
 int		is_max(int *stack, int len_s, int num);
 int		find_max_id(int *stack, int len_s);
-void	put_first_three(t_stack *s);
 void	ft_make_moves(t_stack *s);
 void	ft_make_moves_to_the_right(t_stack *s, void rr_from(), void rr_to());
 void	ft_make_moves_to_the_left(t_stack *s, void r_from(), void r_to());
 void	ft_make_moves_crossed(t_stack *s, void rr_from(), void r_to());
+void	handle_three(t_stack *s);
 
 #endif

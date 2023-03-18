@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/18 09:53:35 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:29:16 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	ft_end_shorting(t_stack *s)
 
 void	push_swap(t_stack *s)
 {
-	s->tot_moves = 0; ///////
 	ft_lis(s);
 	while (s->len_a != s->len_l)
 	{
@@ -52,7 +51,6 @@ void	push_swap(t_stack *s)
 		ft_pa(s);
 	}
 	ft_end_shorting(s);
-	printf("tot moves: %d\n", s->tot_moves); ///////
 	free(s->lis);
 }
 
@@ -66,26 +64,9 @@ int	main(int ac, char **av)
 	s.a = ft_malloc(s.len_a * 4);
 	s.b = ft_malloc(1);
 	ft_astai(s.a, av[1]);
-	// do the magic //
-	/// handle special case if length of stack a is 3 ///
-			/// do it here ///
-	// put_first_three(&s);
+	if  (s.len_a == 3)
+		handle_three(&s);
 	push_swap(&s);
-	// // magic ended //
-	/// testing ///
-	printf("len a: %d\n", s.len_a);
-	int i = -1;
-	while (++i < s.len_a)
-		printf("%d ", s.a[i]);
-	printf("\n");
-	// i = -1;
-	// if (s.len_b != 0)
-	// {
-	// 	while (++i < s.len_b)
-	// 		printf("%d ", s.b[i]);
-	// 	printf("\n");
-	// }
-	/// end testing ///
 	free(s.a);
 	free(s.b);
 	return (0);

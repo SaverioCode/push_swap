@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/18 09:03:22 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/18 10:12:50 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,5 +127,4 @@ void	ft_fstmv(t_stack *s)
 	i = s->len_b;
 	while (--i >= 0)
 		fstmv_end_start(s, i);
-	s->tot_moves += s->moves;  ////////
 }
