@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:19:01 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/20 06:57:03 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 07:05:02 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,10 @@ int	main(int ac, char **av)
 	s.a = ft_malloc(s.len_a * 4);
 	s.b = ft_malloc(1);
 	ft_astai(s.a, av, ac);
-	if  (s.len_a == 3)
+	if (s.len_a == 3)
 		handle_three(&s);
-	push_swap(&s);
+	else
+		push_swap(&s);
 	free(s.a);
 	free(s.b);
 	return (0);
