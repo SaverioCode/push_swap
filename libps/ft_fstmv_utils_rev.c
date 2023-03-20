@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 21:55:49 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/18 07:49:35 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 07:07:59 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	fstmv_eq_crossed_rev(int id_from, int id_to, t_stack *s)
 	return (0);
 }
 
-void	set_len_from_and_len_to(int	len_from, int len_to, t_stack *s)
+void	set_len_from_and_len_to(int len_from, int len_to, t_stack *s)
 {
 	s->len_from = len_from;
 	s->len_to = len_to;

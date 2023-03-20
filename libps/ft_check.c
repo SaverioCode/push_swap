@@ -6,13 +6,13 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:52:24 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/20 06:53:29 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 07:07:08 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_if_ac_equal_two(char *str, int *len)
+void	ft_if_ac_equal_two(char *str, int *len)
 {
 	while (*str)
 	{
@@ -38,7 +38,7 @@ void ft_if_ac_equal_two(char *str, int *len)
 void	ft_check(int ac, char **str, int *len)
 {
 	int	i;
-	
+
 	if (ac < 2)
 	{
 		write(2, "Error\n", 6);

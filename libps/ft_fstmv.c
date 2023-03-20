@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 00:12:00 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/18 10:12:50 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 07:07:26 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void	fstmv_end_start(t_stack *s, int i)
 			if (is_suitable(s->b, s->a, i, j))
 				updt_fstmv_crossed(i, j, s, 3);
 	}
-
 }
 
 void	updt_fstmv_crossed(int id_from, int id_to, t_stack *s, int flag)
