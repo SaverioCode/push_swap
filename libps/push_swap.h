@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:51:27 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/18 10:55:11 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 06:48:30 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "ft_moves/moves.h"
 
 void	ft_check(int ac, char **str, int *len);
-void	ft_astai(int *a, char **av);
+void	ft_astai(int *a, char **av, int ac);
 int		ft_atoi(const char *str);
 void	ft_lis(t_stack *s);
 int		ft_islis(t_stack *s, int num);
