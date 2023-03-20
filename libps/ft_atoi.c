@@ -6,15 +6,26 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 22:08:13 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/10 06:43:58 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:45:42 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+void	ft_check_min_max(long long num)
+{
+	if (num > INT_MAX || num < INT_MIN)
+	{
+		write(2, "Error\n", 6);
+		exit(0);
+	}
+}
+
 int	ft_atoi(const char *str)
 {
-	char	sign;
-	int		value;
-	int		i;
+	char		sign;
+	long long	value;
+	int			i;
 
 	value = 0;
 	i = -1;
@@ -35,5 +46,6 @@ int	ft_atoi(const char *str)
 	}
 	if (sign == 45)
 		value = -value;
+	ft_check_min_max(value);
 	return (value);
 }

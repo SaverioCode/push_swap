@@ -6,11 +6,12 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 07:44:44 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/20 10:13:20 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:27:11 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libps/push_swap.h"
+#include <stdio.h>
 
 int	ft_execute_cmd(t_stack *s, char *cmd)
 {
@@ -50,7 +51,7 @@ void	ft_check_cmd(t_stack *s, char *cmd)
 		return ;
 	if (!ft_execute_cmd(s, cmd))
 	{
-		write(1, "Error: wrong command\n", 21);
+		write(2, "Error: wrong command\n", 21);
 		free(s->a);
 		free(s->b);
 		exit(0);
@@ -88,16 +89,16 @@ void	ft_check_stacks(t_stack *s)
 
 	if (s->len_b != 0)
 	{
-		write(2, "KO\n", 3);
+		write(1, "KO\n", 3);
 		return ;
 	}
 	num = s->a[0];
-	i = -1;
+	i = 0;
 	while (++i < s->len_a)
 	{
 		if (num > s->a[i] || s->a[i] < s->a[i - 1])
 		{
-			write(2, "KO\n", 3);
+			write(1, "KO\n", 3);
 			return ;
 		}
 	}
@@ -117,12 +118,13 @@ int	main(int ac, char **av)
 	ft_astai(s.a, av, ac);
 	ft_check_duplicates(&s);
 	cmd = get_next_line(0);
-	while (*cmd)
+	while (cmd)
 	{
-		cmd = get_next_line(0);
 		ft_check_cmd(&s, cmd);
 		free(cmd);
+		cmd = get_next_line(0);
 	}
+	free(cmd);
 	ft_check_stacks(&s);
 	free(s.a);
 	free(s.b);

@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:51:27 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/20 10:02:12 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:29:03 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
 
 typedef struct stack_info
 {

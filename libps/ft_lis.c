@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 23:37:52 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/16 00:12:11 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:47:31 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ int	find_len(t_stack *s, int *M, int i)
 	return (low);
 }
 
-void	create_lis(t_stack *s, int *P, int *M)
+void	create_lis(t_stack *s, int *p, int *m)
 {
 	int	*arr;
 	int	i;
 	int	j;
 
 	arr = ft_malloc(s->len_l * 4);
-	j = M[s->len_l];
+	j = m[s->len_l];
 	i = s->len_l - 1;
 	while (i >= 0)
 	{
 		arr[i] = s->a[j];
-		j = P[j];
+		j = p[j];
 		i--;
 	}
 	s->lis = arr;
@@ -52,25 +52,25 @@ void	create_lis(t_stack *s, int *P, int *M)
 void	ft_lis(t_stack *s)
 {
 	int	len_a;
-	int	*P;
-	int	*M;
+	int	*p;
+	int	*m;
 	int	newl;
 	int	i;
 
 	len_a = s->len_a;
-	P = ft_malloc(len_a * 4);
-	M = ft_malloc((len_a + 1) * 4);
+	p = ft_malloc(len_a * 4);
+	m = ft_malloc((len_a + 1) * 4);
 	s->len_l = 0;
 	i = -1;
 	while (++i < len_a)
 	{
-		newl = find_len(s, M, i);
-		P[i] = M[newl - 1];
-		M[newl] = i;
+		newl = find_len(s, m, i);
+		p[i] = m[newl - 1];
+		m[newl] = i;
 		if (newl > s->len_l)
 			s->len_l = newl;
 	}
-	create_lis(s, P, M);
-	free(P);
-	free(M);
+	create_lis(s, p, m);
+	free(p);
+	free(m);
 }

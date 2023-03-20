@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:52:24 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/20 07:07:08 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:25:30 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_check(int ac, char **str, int *len)
 
 	if (ac < 2)
 	{
-		write(2, "Error\n", 6);
+		write(1, "\n", 1);
 		exit(0);
 	}
 	else if (ac == 2)
