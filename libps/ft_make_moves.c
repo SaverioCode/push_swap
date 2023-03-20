@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 01:15:48 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/18 09:26:46 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 09:07:59 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_make_moves_to_the_left(t_stack *s, void r_from(), void r_to())
 {
 	while (s->id_from > 0 && s->id_to > 0)
 	{
-		ft_rr(s);
+		ft_rr(s, 1);
 		s->id_from--;
 		s->id_to--;
 	}
@@ -36,7 +36,7 @@ void	ft_make_moves_to_the_right(t_stack *s, void rr_from(), void rr_to())
 {
 	while (s->id_from < s->len_from && s->id_to < s->len_to)
 	{
-		ft_rrr(s);
+		ft_rrr(s, 1);
 		s->id_from++;
 		s->id_to++;
 	}

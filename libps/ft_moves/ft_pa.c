@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 23:27:31 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/17 23:53:20 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 09:07:10 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_new_b(t_stack *s)
 	s->b = new_b;
 }
 
-void	ft_pa(t_stack *s)
+void	ft_pa(t_stack *s, int flag)
 {
 	int	*new_a;
 	int	i;
@@ -47,6 +47,7 @@ void	ft_pa(t_stack *s)
 	(s->len_b)--;
 	free(s->a);
 	ft_new_b(s);
-	write(1, "pa\n", 3);
+	if (flag == 1)
+		write(1, "pa\n", 3);
 	s->a = new_a;
 }

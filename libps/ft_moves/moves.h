@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:51:27 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/18 10:12:44 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 09:06:36 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ typedef struct stack_info
 
 void	ft_rra(t_stack *s, int flag);
 void	ft_rrb(t_stack *s, int flag);
-void	ft_rrr(t_stack *s);
+void	ft_rrr(t_stack *s, int flag);
 void	ft_ra(t_stack *s, int flag);
 void	ft_rb(t_stack *s, int flag);
-void	ft_rr(t_stack *s);
-void	ft_sa(t_stack *s);
-void	ft_pb(t_stack *s);
-void	ft_pa(t_stack *s);
+void	ft_rr(t_stack *s, int flag);
+void	ft_sa(t_stack *s, int flag);
+void	ft_pb(t_stack *s, int flag);
+void	ft_pa(t_stack *s, int flag);
 void	*ft_malloc(int bytes);
 
 #endif

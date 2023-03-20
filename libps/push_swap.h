@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:51:27 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/20 07:08:55 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 08:06:25 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "ft_moves/moves.h"
+# include "get_next_line/get_next_line.h"
 
 void	ft_check(int ac, char **str, int *len);
 void	ft_astai(int *a, char **av, int ac);

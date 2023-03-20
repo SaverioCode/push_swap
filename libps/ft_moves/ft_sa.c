@@ -6,13 +6,13 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 19:29:55 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/15 23:40:35 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 09:03:05 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "moves.h"
 
-void	ft_sa(t_stack *s)
+void	ft_sa(t_stack *s, int flag)
 {
 	int	tmp;
 
@@ -21,5 +21,6 @@ void	ft_sa(t_stack *s)
 	tmp = s->a[0];
 	s->a[0] = s->a[1];
 	s->a[1] = tmp;
-	write(1, "sa\n", 3);
+	if (flag == 1)
+		write(1, "sa\n", 3);
 }
