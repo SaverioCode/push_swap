@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    ft_strlenreal.c                                   :+:      :+:    :+:   */
+/*   ft_ss.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 08:51:15 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/20 08:52:20 by fgarzi-c         ###   ########.fr       */
+/*   Created: 2023/03/20 10:01:23 by fgarzi-c          #+#    #+#             */
+/*   Updated: 2023/03/20 10:23:41 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "moves.h"
 
-size_t	ft_strlenreal(char *str)
+void	ft_ss(t_stack *s, int flag)
 {
-	size_t	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
+	ft_sa(s, 0);
+	ft_sb(s, 0);
+	if (flag == 1)
+		write(1, "ss\n", 3);
 }

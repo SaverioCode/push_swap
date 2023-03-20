@@ -6,13 +6,13 @@
 #    By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 21:48:18 by fgarzi-c          #+#    #+#              #
-#    Updated: 2023/03/18 06:16:23 by fgarzi-c         ###   ########.fr        #
+#    Updated: 2023/03/20 10:23:25 by fgarzi-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = moves.a
 SRCS = ft_pa.c ft_pb.c ft_rb.c ft_rrb.c ft_sa.c ft_rr.c \
-	ft_ra.c ft_rra.c ft_rrr.c ft_malloc.c
+	ft_ra.c ft_rra.c ft_rrr.c ft_malloc.c ft_sb.c ft_ss.c
 OBJS = $(SRCS:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror

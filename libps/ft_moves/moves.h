@@ -6,7 +6,7 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 01:51:27 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/20 09:06:36 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:02:12 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	ft_ra(t_stack *s, int flag);
 void	ft_rb(t_stack *s, int flag);
 void	ft_rr(t_stack *s, int flag);
 void	ft_sa(t_stack *s, int flag);
+void	ft_sb(t_stack *s, int flag);
+void	ft_ss(t_stack *s, int flag);
 void	ft_pb(t_stack *s, int flag);
 void	ft_pa(t_stack *s, int flag);
 void	*ft_malloc(int bytes);

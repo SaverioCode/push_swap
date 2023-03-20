@@ -6,7 +6,7 @@
 #    By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 21:48:18 by fgarzi-c          #+#    #+#              #
-#    Updated: 2023/03/20 07:57:52 by fgarzi-c         ###   ########.fr        #
+#    Updated: 2023/03/20 10:22:00 by fgarzi-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,11 @@ NAME = push_swap
 NAMEB = checker
 LIB_M = libps/ft_moves/moves.a
 LIB_L = libps/libps.a
-LIB_G = libps/get_next_line.a
+LIB_G = libps/get_next_line/get_next_line.a
 SRCS = push_swap.c
 SRCSB = checker.c
 OBJS = $(SRCS:.c=.o)
+OBJSB = $(SRCSB:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -35,16 +36,18 @@ bonus: $(%.c)
 	@make -C libps/ft_moves
 	@make -C libps/get_next_line
 	@make -C libps
-	@$(CC) $(CFLAGS) $(OBJS) $(LIB_M) $(LIB_L) $(LIB_G) -o $(NAMEB)
+	@$(CC) $(CFLAGS) $(OBJSB) $(LIB_M) $(LIB_L) $(LIB_G) -o $(NAMEB)
 
 clean:
-	@rm -f $(OBJS)
+	@rm -f $(OBJS) $(OBJSB)
 	@make clean -C libps/ft_moves
+	@make clean -C libps/get_next_line
 	@make clean -C libps
 	
 fclean: clean
 	@rm -f $(NAME) $(LIB_M) $(NAMEB)
 	@make fclean -C libps/ft_moves
+	@make fclean -C libps/get_next_line
 	@make fclean -C libps
 	
 re: fclean all

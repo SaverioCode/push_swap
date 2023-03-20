@@ -6,20 +6,20 @@
 /*   By: fgarzi-c <fgarzi-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 07:44:44 by fgarzi-c          #+#    #+#             */
-/*   Updated: 2023/03/20 09:19:06 by fgarzi-c         ###   ########.fr       */
+/*   Updated: 2023/03/20 10:13:20 by fgarzi-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libps/push_swap.h"
 
 int	ft_execute_cmd(t_stack *s, char *cmd)
 {
 	if (cmd[0] == 's' && cmd[1] == 'a' && cmd[2] == '\n')
 		ft_sa(s, 0);
 	else if (cmd[0] == 's' && cmd[1] == 'b' && cmd[2] == '\n')
-		ft_sb(s, 0); /// to write
+		ft_sb(s, 0);
 	else if (cmd[0] == 's' && cmd[1] == 's' && cmd[2] == '\n')
-		ft_ss(s, 0); /// to write
+		ft_ss(s, 0);
 	else if (cmd[0] == 'p' && cmd[1] == 'a' && cmd[2] == '\n')
 		ft_pa(s, 0);
 	else if (cmd[0] == 'p' && cmd[1] == 'b' && cmd[2] == '\n')
@@ -33,7 +33,7 @@ int	ft_execute_cmd(t_stack *s, char *cmd)
 	else if (cmd[0] == 'r' && cmd[1] == 'r' && cmd[2] == 'a' && cmd[3] == '\n')
 		ft_rra(s, 0);
 	else if (cmd[0] == 'r' && cmd[1] == 'r' && cmd[2] == 'b' && cmd[3] == '\n')
-		ft_rrb(s, 0);	
+		ft_rrb(s, 0);
 	else if (cmd[0] == 'r' && cmd[1] == 'r' && cmd[2] == 'r' && cmd[3] == '\n')
 		ft_rrr(s, 0);
 	else
@@ -116,6 +116,7 @@ int	main(int ac, char **av)
 	s.b = ft_malloc(1);
 	ft_astai(s.a, av, ac);
 	ft_check_duplicates(&s);
+	cmd = get_next_line(0);
 	while (*cmd)
 	{
 		cmd = get_next_line(0);
